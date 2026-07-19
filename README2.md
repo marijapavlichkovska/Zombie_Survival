@@ -244,3 +244,19 @@
 - [ ] Main menu
 - [ ] Pause menu
 - [ ] Restart button
+
+
+# Needs improvement
+
+- [ ] Increase daytime (1min)
+- [ ] Enable the barriers to be positioned differently (use arrow keys for the position of the barrier | _ | and Enter to confirm the placement)
+- [ ] Use arrow keys for movement during zombie attacks
+- [ ] Add a small number next to the ammo for the amount 
+- [ ] Small transition animation when it turn night and day 
+- [ ] Add a night duration: if the timer runs out and there are still zombies game over, if there are no zombies no matter the timer the game continues 
+- [ ] After the 5th wave the game is over and the player wins
+- [ ] Show how many materials are needed for the barriers
+- [ ] Add a small health bar for them as well
+- [ ] How many materials are needed to repair a barier
+- [ ] Total zombie kill count
+- [ ] For the buy phase -> we need a window UI because how do you buy ammo for different weapons? (key actions overlap)
