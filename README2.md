@@ -9,11 +9,11 @@
 # ☐ Core Mechanics
 
 ### Player Movement & Combat
-- [ ] WASD movement
-- [ ] Mouse aiming
-- [ ] Shoot toward mouse cursor
-- [ ] Zombie chase AI
-- [ ] Zombie health bars
+- [x] WASD movement
+- [x] Mouse aiming
+- [x] Shoot toward mouse cursor
+- [x] Zombie chase AI
+- [x] Zombie health bars
 - [ ] Weapon damage system (different shots-to-kill)
 
 ### Weapons & Ammo
@@ -24,30 +24,30 @@
 - [ ] Rare weapon spawns
 
 ### Health
-- [ ] Player health
-- [ ] Health packs
+- [x] Player health
+- [x] Health packs
 - [ ] Healing during breaks
 
 ### Difficulty Scaling
 - [ ] Increase zombie HP each wave
 - [ ] Increase zombie speed each wave
 - [ ] Increase zombie contact damage
-- [ ] Increase zombie count
+- [x] Increase zombie count
 
 ### Currency & Shop
 - [ ] Currency drops from zombies
-- [ ] Shop between waves
-- [ ] Purchase weapons
+- [x] Shop between waves
+- [x] Purchase weapons
 - [ ] Purchase upgrades
-- [ ] Free pickups during breaks
-  - [ ] Health packs
-  - [ ] Ammo
+- [x] Free pickups during breaks
+  - [x] Health packs
+  - [x] Ammo
 
 ### Day/Night Cycle
-- [ ] Night starts zombie wave
-- [ ] Screen darkens at night
+- [x] Night starts zombie wave
+- [x] Screen darkens at night
 - [ ] Dawn ends wave
-- [ ] Screen brightens during break
+- [x] Screen brightens during break
 
 ---
 
@@ -63,16 +63,16 @@
 # ☐ Kill Counter
 
 - [ ] Total kills
-- [ ] Kills this wave
-- [ ] Zombies remaining counter
+- [x] Kills this wave
+- [x] Zombies remaining counter
 
 ---
 
 # ☐ HUD / On-Screen UI
 
 ### Always Visible
-- [ ] Player
-- [ ] Health bar
+- [x] Player
+- [x] Health bar
 - [ ] Current weapon icon
 - [ ] Ammo count
 - [ ] Wave number
