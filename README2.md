@@ -14,10 +14,10 @@
 - [x] Shoot toward mouse cursor
 - [x] Zombie chase AI
 - [x] Zombie health bars
-- [ ] Weapon damage system (different shots-to-kill)
+- [x] Weapon damage system (different shots-to-kill)
 
 ### Weapons & Ammo
-- [ ] Current ammo counter
+- [x] Current ammo counter
 - [ ] Color-coded ammo by weapon type
 - [ ] Multiple weapon system
 - [ ] Weapon rarity system
@@ -46,7 +46,7 @@
 ### Day/Night Cycle
 - [x] Night starts zombie wave
 - [x] Screen darkens at night
-- [ ] Dawn ends wave
+- [ ] Dawn ends wave -> change: wave ends when all of the zombies are dead
 - [x] Screen brightens during break
 
 ---
@@ -62,7 +62,7 @@
 
 # ☐ Kill Counter
 
-- [ ] Total kills
+- [x] Total kills
 - [x] Kills this wave
 - [x] Zombies remaining counter
 
@@ -74,20 +74,20 @@
 - [x] Player
 - [x] Health bar
 - [ ] Current weapon icon
-- [ ] Ammo count
+- [x] Ammo count
 - [ ] Wave number
-- [ ] Currency
-- [ ] Zombies remaining
+- [x] Currency
+- [x] Zombies remaining
 
 ### During Waves
-- [ ] Zombies
-- [ ] Zombie HP bars (only when damaged)
+- [x] Zombies
+- [x] Zombie HP bars (only when damaged)
 
 ### During Breaks
-- [ ] Health packs
+- [x] Health packs
 - [ ] Weapon spawns
 - [ ] Shop UI
-- [ ] Ammo pickups
+- [x] Ammo pickups
 
 ---
 
@@ -179,29 +179,11 @@
 
 ## Rare
 
-### Sniper
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Bullet sprite
-- [ ] Muzzle flash
-
 ### Machine Gun
 - [ ] Weapon icon
 - [ ] Held sprite (optional)
 - [ ] Bullet sprite
 - [ ] Muzzle flash
-
----
-
-## Legendary
-
-### Special Weapon
-- [ ] Choose weapon
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Projectile sprite
-- [ ] Muzzle flash
-- [ ] Special effect
 
 ---
 
@@ -250,7 +232,7 @@
 
 - [x] Increase daytime (1min)
 - [x] Enable the barriers to be positioned differently (use arrow keys for the position of the barrier | _ | and Enter to confirm the placement)
-- [ ] Use arrow keys for movement during zombie attacks
+- [ ] Use arrow keys for movement during zombie attacks -> idk if we should do this?
 - [ ] Add a small number next to the ammo for the amount 
 - [x] Small transition animation when it turn night and day 
 - [x] Add a night duration: if the timer runs out and there are still zombies game over, if there are no zombies no matter the timer the game continues 
@@ -261,7 +243,6 @@
 - [x] Total zombie kill count
 - [ ] For the buy phase -> we need a window UI because how do you buy ammo for different weapons? (key actions overlap)
 
-raise the shop a bit more up to fill in the gap, 
-should we do the shop as a button that can be opened during the day? or should we keep it like this?, like with a B key the shop window can open and with a click, ammo or weapon can be bought? since i plan to have like 5 different types of weapons
+should we do the shop as a button that can be opened during the day? or should we keep it like this?, -> not added in the previous text (24.07.2026 9:44) like with a B key the shop window can open and with a click, ammo or weapon can be bought? since i plan to have like 5 different types of weapons
 lower day time when you are just starting (before the first wave it should be like 30s)
 night time should have like 5-10s per zombie depending on the type of zombie and how many hits it needs to be killed
