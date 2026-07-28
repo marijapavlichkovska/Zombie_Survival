@@ -133,12 +133,12 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 # ☐ Animation Frames
 
 ### Every Normal Zombie
-- [ ] Walk Down (3–4 frames)
-- [ ] Walk Up (3–4 frames)
-- [ ] Walk Left (3–4 frames)
+- [ ] Walk Down (6-9 frames)
+- [ ] Walk Up (6-9 frames)
+- [ ] Walk Left (6-9 frames)
 - [ ] Flip Left for Right
-- [ ] Hurt frame
-- [ ] Death frame
+- [ ] Hurt frame -> just red character when its hurt
+- [ ] Death frame -> just a poof of white gas when dead
 
 ### Extra Animations
 - [ ] Spitter attack
