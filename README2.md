@@ -11,7 +11,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 # ☐ Core Mechanics
 
-### Player Movement & Combat
+### ✔ Player Movement & Combat ✔
 - [x] WASD movement
 - [x] Mouse aiming
 - [x] Shoot toward mouse cursor
@@ -63,7 +63,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ---
 
-# ☐ Kill Counter
+# ✔ Kill Counter ✔
 
 - [x] Total kills
 - [x] Kills this wave
@@ -82,7 +82,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [x] Currency
 - [x] Zombies remaining
 
-### During Waves
+### ✔ During Waves ✔
 - [x] Zombies
 - [x] Zombie HP bars (only when damaged)
 
