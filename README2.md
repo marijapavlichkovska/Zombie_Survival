@@ -47,10 +47,10 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
   - [x] Health packs
   - [x] Ammo
 
-### Day/Night Cycle
+### ✔ Day/Night Cycle ✔
 - [x] Night starts zombie wave
 - [x] Screen darkens at night
-- [ ] Dawn ends wave -> change: wave ends when all of the zombies are dead
+- [x] Wave ends when all of the zombies are dead
 - [x] Screen brightens during break
 
 ---
