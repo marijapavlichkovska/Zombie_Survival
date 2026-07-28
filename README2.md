@@ -94,32 +94,32 @@
 # ☐ Zombie Types
 
 ## Walker
-- [ ] Sprite
+- [x] Sprite
 - [ ] Walk animation
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Runner
-- [ ] Sprite
+- [x] Sprite
 - [ ] Walk animation
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Brute
-- [ ] Sprite
+- [x] Sprite
 - [ ] Walk animation
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Spitter
-- [ ] Sprite
+- [x] Sprite
 - [ ] Walk animation
 - [ ] Attack animation
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Boss Zombie
-- [ ] Sprite
+- [x] Sprite
 - [ ] Walk animation
 - [ ] Attack animation
 - [ ] Hurt frame
@@ -232,7 +232,6 @@
 
 - [x] Increase daytime (1min)
 - [x] Enable the barriers to be positioned differently (use arrow keys for the position of the barrier | _ | and Enter to confirm the placement)
-- [ ] Use arrow keys for movement during zombie attacks -> idk if we should do this?
 - [ ] Add a small number next to the ammo for the amount 
 - [x] Small transition animation when it turn night and day 
 - [x] Add a night duration: if the timer runs out and there are still zombies game over, if there are no zombies no matter the timer the game continues 
@@ -242,7 +241,6 @@
 - [x] How many materials are needed to repair a barier
 - [x] Total zombie kill count
 - [ ] For the buy phase -> we need a window UI because how do you buy ammo for different weapons? (key actions overlap)
-
-should we do the shop as a button that can be opened during the day? or should we keep it like this?, -> not added in the previous text (24.07.2026 9:44) like with a B key the shop window can open and with a click, ammo or weapon can be bought? since i plan to have like 5 different types of weapons
-lower day time when you are just starting (before the first wave it should be like 30s)
-night time should have like 5-10s per zombie depending on the type of zombie and how many hits it needs to be killed
+- [ ] should we do the shop as a button that can be opened during the day? or should we keep it like this?, -> not added in the previous text (24.07.2026 9:44) like with a B key the shop window can open and with a click, ammo or weapon can be bought? since i plan to have like 5 different types of weapons
+- [ ] lower day time when you are just starting (before the first wave it should be like 30s)
+- [ ] night time should have like 5-10s per zombie depending on the type of zombie and how many hits it needs to be killed
