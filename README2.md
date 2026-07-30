@@ -99,7 +99,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ## Walker
 - [x] Sprite
-- [ ] Walk animation
+- [x] Walk animation
 - [ ] Hurt frame
 - [ ] Death frame
 
@@ -135,7 +135,9 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ### Every Normal Zombie
 - [ ] Walk Down (6-9 frames)
+- [ ] Walk Down Left (6-9 frame)
 - [ ] Walk Up (6-9 frames)
+- [ ] Walk Up Left (6-9 frames)
 - [ ] Walk Left (6-9 frames)
 - [ ] Flip Left for Right
 - [ ] Hurt frame -> just red character when its hurt
