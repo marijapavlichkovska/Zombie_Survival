@@ -45,17 +45,15 @@ Day/Night cycle — night falls → wave starts (screen darkens, tension); dawn 
 * Shop UI (buy weapons/upgrades with currency)
 * Ammo pickups — color-coded outline by weapon type, spawn in stackable amounts (x5 / x10 / x15)
 
-
 ## Zombie Types To Draw
-* Walker (base zombie) - Standard enemy, bulk of every wavePlain, slightly decayed look, torn clothesBaseline HP/speed/damage
-* Runner (fast zombie) - Rushes the player, punishes standing stillLeaner build, tattered/missing clothing, maybe leaning forward poseLow HP, high speed, moderate damage
-* Brute (tank zombie) - Slow but dangerous, needs sustained fireBulkier silhouette, bigger arms/shoulders, darker/rotting color paletteHigh HP, low speed, high contact damage
-* Spitter (ranged zombie) - Adds ranged threat, forces movement instead of just standing and shootingBloated torso/head, maybe a distinct color (sickly green) to signal "ranged"Low HP, throws projectile, low melee damage
-* Boss Zombie - Special wave-ending encounter - Noticeably larger scale, unique color scheme (e.g. deep red/black), maybe a visual "tell" for an attack animationVery high HP, unique attack pattern, big currency drop
-
+* Walker (base zombie) - Standard enemy, bulk of every wave; Plain, slightly decayed look, torn clothes; Baseline HP/speed/damage
+* Runner (fast zombie) - Rushes the player, punishes standing still; Leaner build, tattered/missing clothing, maybe leaning forward pose; Low HP, high speed, moderate damage
+* Brute (tank zombie) - Slow but dangerous, needs sustained fire; Bulkier silhouette, bigger arms/shoulders, darker/rotting color palette; High HP, low speed, high contact damage
+* Spitter (ranged zombie) - Adds ranged threat, forces movement instead of just standing and shooting; Bloated torso/head, maybe a distinct color (sickly green) to signal "ranged"; Low HP, throws projectile, low melee damage
+* Boss Zombie - Special wave-ending encounter - Noticeably larger scale, unique color scheme (e.g. deep red/black), maybe a visual "tell" for an attack animation; Very high HP, unique attack pattern, big currency drop
 
 ### Frames needed per zombie type (based on the sheet you showed me):
-* Walk cycle: 3-4 frames × 3 directions (down/up/left — flip left for right)
+* Walk cycle: 6-9 frames × 5 directions (down/down left/up/up left/left — flip left for right)
 * Hurt/death frame: 1-2 frames
 * Spitter needs an attack/throw frame; Boss needs its own attack animation
 
@@ -70,10 +68,7 @@ Group by rarity tier so spawn weighting is easy to implement later.
 * Shotgun - High damage up close, short range
 * Rifle - Balanced damage/fire rate, better than pistol per shot
 ##### Rare
-* Sniper - High single-shot damage, slow fire rate
 * Machine Gun - High sustained damage, high ammo consumption
-#### Legendary
-* Special/unique weapon (your call — e.g. explosive crossbow, flamethrower) - Big damage or special effect (e.g. splash damage), very rare spawn
 
 ### Per weapon, you'll need:
 * Small icon sprite (for HUD "current weapon" indicator and shop listing)
@@ -81,19 +76,18 @@ Group by rarity tier so spawn weighting is easy to implement later.
 * Muzzle flash (1-2 frames, can be shared/reused across similar weapon types)
 * Bullet/projectile sprite (can share one bullet sprite across pistol/rifle/SMG, and a distinct one for shotgun pellets or sniper rounds if you want visual variety)
 
-### Ammo Pickups To Draw
+### Ammo Pickups to Draw
 Base ammo pickup shape, recolored/outlined per weapon category:
 * Green outline — pistol/SMG ammo
 * Blue outline — rifle ammo
 * Purple outline — sniper/machine gun ammo
 * Gold outline — legendary weapon ammo (if applicable)
 
-
-Each spawns in stackable quantities (x5 / x10 / x15) — this can just be a text label over the same sprite, no need for separate art per quantity.
+Each spawn in stackable quantities (x5 / x10 / x15) — this can just be a text label over the same sprite, no need for separate art per quantity.
 
 Suggested Player Sprite Frame List
 * Idle (down-facing minimum, ideally 1 per direction)
-* Walk cycle: 3-4 frames × 3 directions (down/up/left, flip for right)
-* Hurt frame (flash red via code is also a fine cheap alternative)
+* Walk cycle: 6-9 frames × 5 directions (down/down left/up/up left/left flip for right)
+* Hurt frame (flash red via code)
 
 #### Optional: death frame for game-over screen
