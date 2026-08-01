@@ -76,13 +76,13 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [x] Health bar
 - [ ] Current weapon icon
 - [x] Ammo count
-- [ ] Wave number
 - [x] Currency
-- [x] Zombies remaining
 
 ### ✔ During Waves ✔
 - [x] Zombies
 - [x] Zombie HP bars (only when damaged)
+- [x] Wave number
+- [x] Zombies remaining
 
 ### During Breaks
 - [x] Health packs
