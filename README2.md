@@ -37,11 +37,10 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [x] Increase zombie speed each wave
 - [x] Increase zombie count
 
-### Currency & Shop
+### ✔ Currency & Shop ✔
 - [x] Currency drops from zombies
 - [x] Shop between waves
 - [x] Purchase weapons
-- [ ] Purchase upgrades
 - [x] Free pickups during breaks
   - [x] Health packs
   - [x] Ammo
