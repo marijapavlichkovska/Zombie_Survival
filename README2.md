@@ -22,24 +22,23 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ### Weapons & Ammo
 - [x] Current ammo counter
-- [ ] Color-coded ammo by weapon type
-- [ ] Multiple weapon system
+- [x] Color-coded ammo by weapon type
+- [x] Multiple weapon system
 - [ ] Weapon rarity system
 - [ ] Rare weapon spawns
 
-### Health
+### ✔ Health ✔
 - [x] Player health
 - [x] Health packs
-- [ ] Healing during breaks
+- [x] Healing during breaks
 
-### Difficulty Scaling
-- [ ] Increase zombie HP each wave
-- [ ] Increase zombie speed each wave
-- [ ] Increase zombie contact damage
+### ✔ Difficulty Scaling ✔
+- [x] Increase zombie HP each wave
+- [x] Increase zombie speed each wave
 - [x] Increase zombie count
 
 ### Currency & Shop
-- [ ] Currency drops from zombies
+- [x] Currency drops from zombies
 - [x] Shop between waves
 - [x] Purchase weapons
 - [ ] Purchase upgrades
@@ -90,7 +89,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 ### During Breaks
 - [x] Health packs
 - [ ] Weapon spawns
-- [ ] Shop UI
+- [x] Shop UI
 - [x] Ammo pickups
 
 ---
@@ -159,21 +158,9 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [ ] Bullet sprite
 - [ ] Muzzle flash
 
-### SMG
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Bullet sprite
-- [ ] Muzzle flash
-
 ---
 
 ## Uncommon
-
-### Shotgun
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Pellet sprite
-- [ ] Muzzle flash
 
 ### Rifle
 - [ ] Weapon icon
