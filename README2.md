@@ -166,6 +166,12 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [ ] Bullet sprite
 - [ ] Muzzle flash
 
+### Shotgun
+- [ ] Weapon icon
+- [ ] Held sprite (optional)
+- [ ] Bullet sprite
+- [ ] Muzzle flash
+
 ---
 
 ## Rare
@@ -181,10 +187,9 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 # ☐ Ammo Pickups
 
 - [ ] Base ammo pickup sprite
-- [ ] Green outline (Pistol/SMG)
-- [ ] Blue outline (Rifle)
-- [ ] Purple outline (Sniper/Machine Gun)
-- [ ] Gold outline (Legendary)
+- [ ] Green outline (Pistol)
+- [ ] Blue outline (Rifle/Shotgun)
+- [ ] Purple outline (Machine Gun)
 
 ### Quantities
 - [ ] x5
