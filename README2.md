@@ -101,7 +101,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
   * [ ] Down Left
   * [ ] Up
   * [ ] Up Left
-  * [ ] Left
+  * [x] Left  https://chatgpt.com/s/m_6a71ad364b888191bd18d17d300a80d8
 - [ ] Hurt frame
 - [ ] Death frame
 
