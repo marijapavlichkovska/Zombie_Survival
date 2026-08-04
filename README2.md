@@ -103,7 +103,7 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
   * [ ] Down Left
   * [ ] Up
   * [ ] Up Left
-  * [x] Left  https://chatgpt.com/s/m_6a71ad364b888191bd18d17d300a80d8
+  * [x] Left https://chatgpt.com/s/m_6a71ae13d2988191ad6747fef706835d https://chatgpt.com/s/m_6a71ad364b888191bd18d17d300a80d8
 - [ ] Hurt frame
 - [ ] Death frame
 
