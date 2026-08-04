@@ -96,25 +96,45 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ## Walker
 - [x] Sprite
-- [x] Walk animation
+- [ ] Walk animation
+  * [ ] Down
+  * [ ] Down Left
+  * [ ] Up
+  * [ ] Up Left
+  * [ ] Left
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Runner
 - [x] Sprite
 - [ ] Walk animation
+  * [ ] Down
+  * [ ] Down Left
+  * [ ] Up
+  * [ ] Up Left
+  * [ ] Left
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Brute
 - [x] Sprite
 - [ ] Walk animation
+  * [ ] Down
+  * [ ] Down Left
+  * [ ] Up
+  * [ ] Up Left
+  * [ ] Left
 - [ ] Hurt frame
 - [ ] Death frame
 
 ## Spitter
 - [x] Sprite
 - [ ] Walk animation
+  * [ ] Down
+  * [ ] Down Left
+  * [ ] Up
+  * [ ] Up Left
+  * [ ] Left
 - [ ] Attack animation
 - [ ] Hurt frame
 - [ ] Death frame
@@ -122,6 +142,11 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 ## Boss Zombie
 - [x] Sprite
 - [ ] Walk animation
+  * [ ] Down
+  * [ ] Down Left
+  * [ ] Up
+  * [ ] Up Left
+  * [ ] Left
 - [ ] Attack animation
 - [ ] Hurt frame
 - [ ] Death frame
