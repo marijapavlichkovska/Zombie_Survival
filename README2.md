@@ -94,6 +94,8 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 # ☐ Zombie Types
 
+Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
+
 ## Walker
 - [x] Sprite
 - [ ] Walk animation
