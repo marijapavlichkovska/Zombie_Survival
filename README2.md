@@ -258,7 +258,7 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 - [ ] Add a small number next to the ammo for the amount 
 - [x] Small transition animation when it turn night and day 
 - [x] Add a night duration: if the timer runs out and there are still zombies game over, if there are no zombies no matter the timer the game continues 
-- [ ] After the 5th wave the game is over and the player wins
+- [ ] After the 10th wave the game is over and the player wins
 - [x] Show how many materials are needed for the barriers
 - [x] Add a small health bar for them as well
 - [x] How many materials are needed to repair a barier
