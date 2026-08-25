@@ -214,9 +214,9 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 # ☐ Ammo Pickups
 
 - [ ] Base ammo pickup sprite
-- [ ] Green outline (Pistol)
-- [ ] Blue outline (Rifle/Shotgun)
-- [ ] Purple outline (Machine Gun)
+- [ ] Green outline (Pistol) #4CAF50
+- [ ] Blue outline (Rifle/Shotgun) #2196F3
+- [ ] Purple outline (Machine Gun) #B24BF3
 
 ### Quantities
 - [ ] x5
