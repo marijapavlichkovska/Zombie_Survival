@@ -164,7 +164,7 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 - [ ] Walk Up Left (6-9 frames)
 - [ ] Walk Left (6-9 frames)
 - [ ] Flip Left for Right
-- [ ] Hurt frame -> just red character when its hurt
+- [ ] Hurt frame -> just red character when its hurt https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094 <- posleden pasus 25.08.2026 09:42
 - [ ] Death frame -> just a poof of white gas when dead
 
 ### Extra Animations
