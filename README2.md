@@ -98,7 +98,7 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 
 ## Walker
 - [x] Sprite
-- [ ] Walk animation
+- [ ] Walk animation - simnato na tel kako kje lichat walking directions-ot 25.08.2026 
   * [ ] Down
   * [ ] Down Left
   * [ ] Up
