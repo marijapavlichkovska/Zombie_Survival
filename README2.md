@@ -96,16 +96,16 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 
-## Walker
+## ✔ Walker ✔
 - [x] Sprite
-- [ ] Walk animation - simnato na tel kako kje lichat walking directions-ot 25.08.2026 
-  * [ ] Down
-  * [ ] Down Left
-  * [ ] Up
-  * [ ] Up Left
+- [x] Walk animation - simnato na tel kako kje lichat walking directions-ot 25.08.2026 
+  * [x] Down
+  * [x] Down Left
+  * [x] Up
+  * [x] Up Left
   * [x] Left https://chatgpt.com/s/m_6a71ae13d2988191ad6747fef706835d https://chatgpt.com/s/m_6a71ad364b888191bd18d17d300a80d8
-- [ ] Hurt frame
-- [ ] Death frame
+- [x] Hurt frame
+- [x] Death frame
 
 ## Runner
 - [x] Sprite
@@ -115,8 +115,8 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
   * [ ] Up
   * [ ] Up Left
   * [ ] Left
-- [ ] Hurt frame
-- [ ] Death frame
+- [x] Hurt frame
+- [x] Death frame
 
 ## Brute
 - [x] Sprite
@@ -126,8 +126,8 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
   * [ ] Up
   * [ ] Up Left
   * [ ] Left
-- [ ] Hurt frame
-- [ ] Death frame
+- [x] Hurt frame
+- [x] Death frame
 
 ## Spitter
 - [x] Sprite
@@ -138,8 +138,8 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
   * [ ] Up Left
   * [ ] Left
 - [ ] Attack animation
-- [ ] Hurt frame
-- [ ] Death frame
+- [x] Hurt frame
+- [x] Death frame
 
 ## Boss Zombie
 - [x] Sprite
@@ -149,9 +149,12 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
   * [ ] Up
   * [ ] Up Left
   * [ ] Left
-- [ ] Attack animation
-- [ ] Hurt frame
-- [ ] Death frame
+- [ ] Attack animation https://chatgpt.com/share/6a8eb8b6-e29c-83ed-b4cb-60cc732d6133\
+  * Charge → dodge positioning
+  * Ground Slam → distance/AOE awareness
+  * Summon → crowd management
+- [x] Hurt frame
+- [x] Death frame
 
 ---
 
