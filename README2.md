@@ -55,7 +55,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 # ☐ Extra Features
 
-- [ ] Boss zombie in the final 5th wave
+- [ ] Boss zombie in the final wave
 - [ ] Large boss currency reward
 - [ ] Unique boss attack
 
