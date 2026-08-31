@@ -236,10 +236,10 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 - [ ] Screen shake
 - [ ] Sound effects
 - [ ] Background music
-- [ ] Game over screen
-- [ ] Main menu
-- [ ] Pause menu
-- [ ] Restart button
+- [ ] Game over screen https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [ ] Main menu https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [ ] Pause menu https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [ ] Restart button https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
 
 
 # Needs improvement
