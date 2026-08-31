@@ -24,7 +24,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [x] Current ammo counter
 - [x] Color-coded ammo by weapon type
 - [x] Multiple weapon system
-- [ ] Weapon rarity system
+- [x] Weapon rarity system
 - [ ] Rare weapon spawns
 
 ### ✔ Health ✔
