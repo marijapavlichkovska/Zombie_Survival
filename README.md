@@ -63,7 +63,6 @@ Group by rarity tier so spawn weighting is easy to implement later.
 
 #### Common
 * Pistol - Starting weapon, low damage, high ammo availability
-* SMG - Fast fire rate, low damage per shot
 #### Uncommon
 * Shotgun - High damage up close, short range
 * Rifle - Balanced damage/fire rate, better than pistol per shot
