@@ -115,17 +115,23 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
   * [ ] Up
   * [ ] Up Left
   * [ ] Left
+  * [ ] Down Right
+  * [ ] Up Right
+  * [ ] Right
 - [x] Hurt frame
 - [x] Death frame
 
-## Brute
+## ✔ Brute ✔
 - [x] Sprite
-- [ ] Walk animation
-  * [ ] Down
-  * [ ] Down Left
-  * [ ] Up
-  * [ ] Up Left
-  * [ ] Left
+- [x] Walk animation
+  * [x] Down
+  * [x] Down Left
+  * [x] Up
+  * [x] Up Left
+  * [x] Left
+  * [x] Down Right
+  * [x] Up Right
+  * [x] Right
 - [x] Hurt frame
 - [x] Death frame
 
@@ -176,52 +182,34 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 
 ---
 
-# ☐ Weapons
+# ✔ ☐ Weapons ✔ https://chatgpt.com/share/6a9555b4-cb48-83ed-9900-7f65c399fbc3
 
 ## Common
-
 ### Pistol
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Bullet sprite
-- [ ] Muzzle flash
+- [x] Weapon icon
 
 ---
 
 ## Uncommon
-
 ### Rifle
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Bullet sprite
-- [ ] Muzzle flash
-
+- [x] Weapon icon
 ### Shotgun
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Bullet sprite
-- [ ] Muzzle flash
+- [x] Weapon icon
 
 ---
 
 ## Rare
-
 ### Machine Gun
-- [ ] Weapon icon
-- [ ] Held sprite (optional)
-- [ ] Bullet sprite
-- [ ] Muzzle flash
+- [x] Weapon icon
 
----
+# ✔ ☐ Ammo Pickups ✔ https://chatgpt.com/share/6a95565a-a47c-83eb-ba13-e3a7dd6a1a57
 
-# ☐ Ammo Pickups
+- [x] Base ammo pickup sprite
+- [x] Green outline (Pistol) #4CAF50
+- [x] Blue outline (Rifle/Shotgun) #2196F3
+- [x] Purple outline (Machine Gun) #B24BF3
 
-- [ ] Base ammo pickup sprite
-- [ ] Green outline (Pistol) #4CAF50
-- [ ] Blue outline (Rifle/Shotgun) #2196F3
-- [ ] Purple outline (Machine Gun) #B24BF3
-
-### Quantities
+### ✔ Quantities ✔ https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
 - [ ] x5
 - [ ] x10
 - [ ] x15
