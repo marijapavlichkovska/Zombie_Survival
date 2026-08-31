@@ -4,7 +4,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 # 🧟 Zombie Survival
 
-## ✔ ☐ Core Concept ✔
+## ✔ Core Concept ✔
 - [x] Survive escalating waves of zombies at night.
 - [x] Use daytime breaks to heal, loot, and shop before the next wave.
 
@@ -182,7 +182,7 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 
 ---
 
-# ✔ ☐ Weapons ✔ https://chatgpt.com/share/6a9555b4-cb48-83ed-9900-7f65c399fbc3
+# ✔ Weapons ✔ https://chatgpt.com/share/6a9555b4-cb48-83ed-9900-7f65c399fbc3
 
 ## Common
 ### Pistol
@@ -202,7 +202,7 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 ### Machine Gun
 - [x] Weapon icon
 
-# ✔ ☐ Ammo Pickups ✔ https://chatgpt.com/share/6a95565a-a47c-83eb-ba13-e3a7dd6a1a57
+# ✔ Ammo Pickups ✔ https://chatgpt.com/share/6a95565a-a47c-83eb-ba13-e3a7dd6a1a57
 
 - [x] Base ammo pickup sprite
 - [x] Green outline (Pistol) #4CAF50
