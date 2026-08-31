@@ -4,9 +4,9 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 # 🧟 Zombie Survival
 
-## ☐ Core Concept
-- [ ] Survive escalating waves of zombies at night.
-- [ ] Use daytime breaks to heal, loot, and shop before the next wave.
+## ✔ ☐ Core Concept ✔
+- [x] Survive escalating waves of zombies at night.
+- [x] Use daytime breaks to heal, loot, and shop before the next wave.
 
 ---
 
