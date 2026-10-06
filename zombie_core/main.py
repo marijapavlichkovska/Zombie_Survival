@@ -1,18 +1,18 @@
 """
 Zombie Survival - v5
 Controls:
-    WASD        - move
-    Mouse       - aim / click the shop button, shop items, and buttons
-    Left Click  - shoot (at night) / interact with shop+barricade UI (day)
-    1 / 2 / 3 / 4 - switch weapon (if owned) -- works day or night
-    `           - toggle god mode (infinite health + ammo)
-    B           - start placing a barricade (day only, clickable too)
-      Arrow keys  - move the ghost preview
-      Space       - rotate horizontal/vertical
-      Enter       - confirm placement
-      Escape      - cancel placement
-    R           - repair nearest barricade in range (day only, clickable too)
-    Esc         - pause (cancels placement / closes shop first, if open)
+    WASD            - move
+    Mouse           - aim / click the shop button, shop items, and buttons
+    Left Click      - shoot (at night) / interact with shop+barricade UI (day)
+    1 / 2 / 3 / 4   - switch weapon (if owned) -- works day or night
+    `               - toggle god mode (infinite health + ammo)
+    B               - start placing a barricade (day only, clickable too)
+        Arrow keys  - move the ghost preview
+        Space       - rotate horizontal/vertical
+        Enter       - confirm placement
+        Escape      - cancel placement
+    R               - repair nearest barricade in range (day only, clickable too)
+    Esc             - pause (cancels placement / closes shop first, if open)
 """
 
 import pygame
@@ -153,9 +153,7 @@ def draw_placement_ui(screen, font, player, placement):
 
 
 class GameSession:
-    """Holds everything that needs to be reset on a restart, in one
-    place, so starting a new run from the menu/pause/game-over/win
-    screens is always the same single call."""
+    """Holds everything that needs to be reset on a restart."""
 
     def __init__(self):
         self.player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
@@ -292,7 +290,7 @@ def main():
                     elif session.state == STATE_WAVE and player.can_shoot():
                         fire_weapon(player, session.bullets, session.noise_manager)
 
-        # ---- update ----
+        # --- update ---
         if app_state == APP_STATE_PLAYING:
             update_playing(dt, session)
             if not session.player.is_alive:
@@ -300,7 +298,7 @@ def main():
             elif session.won:
                 app_state = APP_STATE_WIN
 
-        # ---- draw ----
+        # --- draw ---
         if app_state == APP_STATE_MENU:
             draw_main_menu(screen, font_big, font)
         elif app_state == APP_STATE_GAMEOVER:
@@ -358,7 +356,7 @@ def update_playing(dt, session):
         else:
             session.state_timer -= dt
             if session.state_timer <= 0 and not player.god_mode:
-                player.health = 0  # triggers the game-over check back in main()
+                player.health = 0  # triggers the game-over check
                 session.end_reason = "Overrun -- the horde broke through before dawn"
 
     # --- smooth day/night visual transition ---
