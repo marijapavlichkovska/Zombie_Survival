@@ -8,8 +8,7 @@ from game.settings import (
 
 
 class Bullet:
-    """Player-fired projectile."""
-
+    """Player-fired bullets/projectiles."""
     def __init__(self, pos, angle_degrees, damage, color):
         self.pos = pygame.Vector2(pos)
         angle_rad = math.radians(angle_degrees)
