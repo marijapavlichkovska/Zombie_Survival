@@ -10,7 +10,7 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ---
 
-# ☐ Core Mechanics
+# ✔ Core Mechanics ✔
 
 ### ✔ Player Movement & Combat ✔
 - [x] WASD movement
@@ -20,12 +20,11 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [x] Zombie health bars
 - [x] Weapon damage system (different shots-to-kill)
 
-### Weapons & Ammo
+### ✔ Weapons & Ammo ✔
 - [x] Current ammo counter
 - [x] Color-coded ammo by weapon type
 - [x] Multiple weapon system
 - [x] Weapon rarity system
-- [ ] Rare weapon spawns
 
 ### ✔ Health ✔
 - [x] Player health
@@ -53,11 +52,11 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ---
 
-# ☐ Extra Features
+# ✔ Extra Features ✔
 
-- [ ] Boss zombie in the final wave
-- [ ] Large boss currency reward
-- [ ] Unique boss attack
+- [x] Boss zombie in the 5th and 10th wave
+- [x] Large boss currency reward
+- [x] Unique boss attack
 
 ---
 
@@ -69,12 +68,12 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 
 ---
 
-# ☐ HUD / On-Screen UI
+# ✔ HUD / On-Screen UI ✔
 
-### Always Visible
+### ✔ Always Visible ✔
 - [x] Player
 - [x] Health bar
-- [ ] Current weapon icon
+- [x] Current weapon icon
 - [x] Ammo count
 - [x] Currency
 
@@ -84,9 +83,8 @@ https://opengameart.org/art-search-advanced?keys=character&title=&field_art_tags
 - [x] Wave number
 - [x] Zombies remaining
 
-### During Breaks
+### ✔ During Breaks ✔
 - [x] Health packs
-- [ ] Weapon spawns
 - [x] Shop UI
 - [x] Ammo pickups
 
@@ -210,9 +208,9 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 - [x] Purple outline (Machine Gun) #B24BF3
 
 ### ✔ Quantities ✔ https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
-- [ ] x5
-- [ ] x10
-- [ ] x15
+- [x] x5
+- [x] x10
+- [x] x15
 
 ---
 
@@ -231,30 +229,27 @@ Zombie types sprite : https://chatgpt.com/s/m_6a71ad8382dc819189ac1d0204b6f00c
 
 ---
 
-# ☐ Polish
+# ✔ Polish ✔
 
-- [ ] Screen shake
-- [ ] Sound effects
-- [ ] Background music
-- [ ] Game over screen https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
-- [ ] Main menu https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
-- [ ] Pause menu https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
-- [ ] Restart button https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [x] Game over screen https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [x] Main menu https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [x] Pause menu https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
+- [x] Restart button https://claude.ai/share/1bbfcbd7-5e33-4eb7-aef6-913dcc873094
 
 
 # Needs improvement
 
 - [x] Increase daytime (1min)
 - [x] Enable the barriers to be positioned differently (use arrow keys for the position of the barrier | _ | and Enter to confirm the placement)
-- [ ] Add a small number next to the ammo for the amount 
+- [x] Add a small number next to the ammo for the amount 
 - [x] Small transition animation when it turn night and day 
 - [x] Add a night duration: if the timer runs out and there are still zombies game over, if there are no zombies no matter the timer the game continues 
-- [ ] After the 10th wave the game is over and the player wins
+- [x] After the 10th wave the game is over and the player wins
 - [x] Show how many materials are needed for the barriers
 - [x] Add a small health bar for them as well
-- [x] How many materials are needed to repair a barier
+- [x] How many materials are needed to repair a barrier
 - [x] Total zombie kill count
-- [ ] For the buy phase -> we need a window UI because how do you buy ammo for different weapons? (key actions overlap)
-- [ ] should we do the shop as a button that can be opened during the day? or should we keep it like this?, -> not added in the previous text (24.07.2026 9:44) like with a B key the shop window can open and with a click, ammo or weapon can be bought? since i plan to have like 5 different types of weapons
+- [x] For the buy phase -> we need a window UI because how do you buy ammo for different weapons? (key actions overlap)
+- [x] should we do the shop as a button that can be opened during the day? or should we keep it like this?, -> not added in the previous text (24.07.2026 9:44) like with a B key the shop window can open and with a click, ammo or weapon can be bought? since i plan to have like 5 different types of weapons
 - [ ] lower day time when you are just starting (before the first wave it should be like 30s)
-- [ ] night time should have like 5-10s per zombie depending on the type of zombie and how many hits it needs to be killed
+- [x] night time should have like 5-10s per zombie depending on the type of zombie and how many hits it needs to be killed
