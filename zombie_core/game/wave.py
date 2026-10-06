@@ -22,11 +22,12 @@ def _spawn_edge_position():
 def spawn_wave(wave_number):
     """Returns a list of new Zombie instances for this wave. Early
     waves are mostly walkers so the player isn't overwhelmed with
-    variety before they've had a chance to buy anything. Every
-    BOSS_WAVE_INTERVAL waves, a boss spawns in addition to the normal
-    count -- it has its own fixed stat multiplier rather than scaling
-    with wave number, since its base stats are already tuned to be a
-    standalone threat."""
+    variety before they've had a chance to buy anything. 
+    
+    Every BOSS_WAVE_INTERVAL waves, a boss spawns in addition to the 
+    normal count -- it has its own fixed stat multiplier rather than 
+    scaling with wave number, since its base stats are already tuned 
+    to be a standalone threat."""
     count = WAVE_BASE_COUNT + (wave_number - 1) * WAVE_COUNT_STEP
     health_multiplier = 1.0 + (wave_number - 1) * 0.15
     speed_multiplier = 1.0 + (wave_number - 1) * 0.04
@@ -45,7 +46,7 @@ def spawn_wave(wave_number):
         zombies.append(Zombie(x, y, ztype, health_multiplier, speed_multiplier))
 
     if wave_number % BOSS_WAVE_INTERVAL == 0:
-        x, y = SCREEN_WIDTH / 2, -40  # a clear, centered entrance for the boss
+        x, y = SCREEN_WIDTH / 2, -40 
         zombies.append(Zombie(x, y, "boss"))
 
     return zombies
