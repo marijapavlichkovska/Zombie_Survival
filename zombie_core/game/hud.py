@@ -1,20 +1,11 @@
 """
-HUD layout:
-
-    [HP bar........] hp        Wave N              [ SHOP ]
-    [wood][metal][$]                                button
-    Zombies killed: N
-
-                [1][2][3][4]     <- hotkey numbers, top-left of each slot
-                [pistol][rifle][shotgun][machinegun]   <- bottom center
-
 Every icon here is loaded via game.assets.load_image() with a
 fallback to a plain colored square + text if the file isn't there
 yet, so this still renders correctly even before art exists.
 
 Also includes: main menu, pause menu, game-over screen, and win
 screen (the latter two share most of their layout, just different
-text/color -- see _draw_end_screen).
+text/color.
 """
 
 import pygame
@@ -65,7 +56,7 @@ def draw_hud(screen, font, player, wave_number, zombies_remaining, state, state_
         god_text = font.render("GOD MODE", True, YELLOW)
         screen.blit(god_text, (x + bar_w + 10, y + 24))
 
-    # --- resource badges (wood / metal / currency), below HP bar ---
+    # --- resource badges ---
     badge_y = y + bar_h + 10
     wood_icon = _resource_icon("materials/wood.png", (150, 110, 60))
     metal_icon = _resource_icon("materials/metal.png", (170, 175, 180))
@@ -75,7 +66,7 @@ def draw_hud(screen, font, player, wave_number, zombies_remaining, state, state_
     next_x = _draw_resource_badge(screen, font, next_x, badge_y, metal_icon, player.metal)
     _draw_resource_badge(screen, font, next_x, badge_y, currency_icon, player.currency, count_color=YELLOW)
 
-    # --- zombie kill counter, just under the resource row ---
+    # --- zombie kill counter ---
     kills_text = font.render(f"Zombies killed: {player.total_kills}", True, LIGHT_GREY)
     screen.blit(kills_text, (x, badge_y + ICON_SIZE + 10))
 
@@ -84,7 +75,7 @@ def draw_hud(screen, font, player, wave_number, zombies_remaining, state, state_
     wave_text = wave_font.render(f"Wave {wave_number}", True, RED)
     screen.blit(wave_text, (SCREEN_WIDTH / 2 - wave_text.get_width() / 2, 16))
 
-    # --- day/night state + timer, top-right (above the shop button/panel) ---
+    # --- day/night state + timer, top-right ---
     if state == STATE_WAVE:
         timer_color = RED if state_timer < 10 else WHITE
         state_str = "NIGHT  -  Zombies left: " + str(zombies_remaining)
@@ -104,11 +95,9 @@ def draw_hud(screen, font, player, wave_number, zombies_remaining, state, state_
 def draw_weapon_bar(screen, font, player):
     """Bottom-center row: one slot per weapon (pistol/rifle/shotgun/
     machinegun) showing its icon, ammo, and hotkey number. Unowned
-    weapons are dimmed/locked. Outline color identifies the weapon
-    (see settings.WEAPON_OUTLINE_COLORS -- set
-    WEAPON_COLORED_OUTLINES = False there to turn this off and go
-    back to a plain white/grey outline); the equipped weapon gets a
-    thicker outline than an owned-but-unequipped one."""
+    weapons are dimmed/locked. Outline color identifies the weapon, 
+    while the equipped weapon gets a thicker outline than an 
+    owned-but-unequipped one."""
     gap = 10
     total_w = len(WEAPON_ORDER) * WEAPON_SLOT_SIZE + (len(WEAPON_ORDER) - 1) * gap
     start_x = SCREEN_WIDTH / 2 - total_w / 2
