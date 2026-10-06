@@ -1,92 +1,231 @@
-# Zombie_Survival
+# Zombie Survival
+A 2D pixel-art survival game developed in Python using Pygame.
 
-## Core Concept
-You survive escalating waves of zombies at night, and use the daytime breaks to heal, loot, and shop for better gear before the next wave hits.
+The goal is simple: survive increasingly difficult waves of zombies during the night, then use the daytime break to heal, collect resources, repair barriers, buy weapons and ammunition, and prepare for the next wave.
 
-## Core Mechanics
-* WASD movement — player walks left/right/forward/backward. Zombies walk toward the player during a wave (simple chase AI, move toward player position each frame).
-* Mouse aiming — player aims and shoots toward the cursor. Each zombie has a health bar; shots-to-kill depends on weapon damage vs. zombie HP (e.g., 5 pistol shots vs. 3 rifle shots to kill a base zombie).
-* Ammo — current ammo count shown on screen at all times, color-coded to match weapon type.
-* Multiple weapons — rarer weapon spawns during breaks deal more damage / kill zombies faster.
-* Health packs — spawn during breaks, heal the player if they took damage during the last wave.
-* Increasing difficulty — scales on two axes so it doesn't feel like just a bullet-sponge grind:
-* Zombie stats scale up per wave (contact damage, speed, HP) — e.g. wave 1 = -5 HP on hit, wave 2 = -10 HP, etc.
-* Zombie count also increases per wave — more enemies, not just tougher ones.
-* Currency + Shop between rounds — killing zombies drops currency. Basic items (health packs, common ammo) are free pickups during breaks; weapons and upgrades cost currency in the shop. This adds a resource-management decision layer during breaks instead of just "walk around and grab things."
-Day/Night cycle — night falls → wave starts (screen darkens, tension); dawn breaks → wave ends → break/shop phase (screen brightens, calm/safe).
+The game features multiple zombie types, different weapons and rarities, a day/night cycle, difficulty scaling, bosses, a shop system, barriers, and animated pixel-art characters.
 
-## Extras
-* Boss zombie — appears at set wave intervals (e.g. every 5th wave), much higher HP, unique attack pattern, drops significantly more currency.
-* Blood particles — small fading squares/circles on hit, simple velocity + alpha fade, no extra art needed.
-* Fog — omitted (adds visual clutter without gameplay payoff; day/night overlay already covers atmosphere).
+## Game Overview
+The game is structured around a day/night cycle. Each game consists of alternating daytime preparation phases and nighttime zombie waves.
 
-## Kill Counter
-* Total kills (per run) — resets each playthrough, shown on HUD or pause/game-over screen.
-* Kills this wave — used to calculate "zombies remaining" (remaining = wave total − kills this wave).
+### Day cycle
+During the day, the player gets time to:
+* Heal
+* Collect free health packs
+* Collect ammunition
+* Repair and reposition barriers
+* Purchase weapons
+* Purchase ammunition
+* Prepare for the upcoming wave
 
-## On-Screen Elements
+### Night cycle
+At night, zombies spawn and begin attacking the player.
+The player must:
+* Move around the map
+* Aim using the mouse
+* Shoot incoming zombies
+* Manage ammunition
+* Use barriers strategically
+* Survive until all zombies are defeated
 
-### Always visible
+If the night timer expires while zombies are still alive, the player loses. If all zombies are eliminated before the timer expires, the game continues to the next daytime phase.
+
+A short transition animation plays when changing between day and night, and each wave becomes progressively harder.
+
+**Objective:** Survive all **10 waves**, defeat the bosses, manage your resources, and make it through the final wave.
+
+## Core Features
+
+### Player & Combat
+* WASD player movement
+* Mouse aiming
+* Shooting toward the mouse cursor
+* Player health system
+* Health packs
+* Zombie chase AI
+* Zombie health bars
+* Different weapon damage values
+* Different numbers of shots required to kill zombies
+
+### Weapons
+The game contains multiple weapons with different rarities and characteristics.
+| Rarity | Weapon | Ammunition |
+|---------|-------------|---------|
+| 🟢 Common | Pistol | Green #4CAF50 |
+| 🔵 Uncommon | Rifle | Blue #2196F3 |
+| 🔵 Uncommon | Shotgun | Blue #2196F3 |
+| 🟣 Rare | Machine Gun | Purple #B24BF3 |
+
+Each weapon has its own ammunition type and color-coded ammunition pickups.
+
+Ammo pickups are available in different quantities:
+* x5
+* x10
+* x15
+
+## Zombie Types
+The game contains several zombie types with different characteristics.
+* **Walker** — Standard zombie with normal speed, health, and basic chase behavior.
+* **Runner** — Fast zombie with high movement speed but lower health.
+* **Brute** — Slow, high-health zombie that requires more shots to defeat.
+* **Spitter** — Ranged zombie that keeps its distance and attacks the player from afar.
+  * **Ranged Attack** — Attacks the player from a distance.
+* **Boss Zombie** — Powerful zombie appearing on Wave 5 and 10, with high health, unique attacks, and a large currency reward.
+  * **Charge** — Rushes toward the player, requiring them to dodge.
+  * **Ground Slam** — Deals area-of-effect damage around the boss.
+  * **Summon** — Summons additional zombies to increase the pressure on the player.
+
+## Difficulty Scaling
+Zombie difficulty increases as the player progresses through the waves.
+
+The game increases:
+* Zombie health
+* Zombie movement speed
+* Number of zombies
+* Overall wave difficulty
+
+The amount of time available during a night is also influenced by the number and type of zombies.
+
+Different zombie types receive different time allowances depending on their difficulty and how many hits they require to defeat.
+
+## Barriers
+Barriers can be used to slow down or control zombies.
+
+The player can:
+* Position barriers differently
+* Move the barrier position using the arrow keys
+* Confirm placement with Enter
+* See the materials required to build a barrier
+* See the barrier's health
+* Repair damaged barriers using materials
+
+This allows the player to create defensive positions before a wave begins.
+
+## Currency & Shop
+Zombies drop currency when defeated.
+
+Currency can be used during the daytime preparation phase to purchase:
+* Weapons
+* Ammunition
+
+The shop uses a dedicated UI window to make purchasing different ammunition types easier.
+
+## Kill Counter & HUD
+The game tracks the player's progress through several HUD elements.
+
+### Always Visible
 * Player
 * Health bar
-* Current weapon indicator (small icon, bottom-right corner)
-* Ammo count (color-coded to weapon type)
-* Wave number (e.g. "Wave 3")
-* Zombies remaining (during waves)
-* Currency total
+* Current weapon
+* Ammunition
+* Currency
 
-### During zombie waves
-* Zombies (with HP bar shown only when damaged, not at full health)
-* Zombies remaining counter
+### During Waves
+* Wave number
+* Zombies remaining
+* Zombie health bars when damaged
+* Kills this wave
+* Total kills
 
-### During breaks
-* Health packs (free pickup)
-* Weapon spawns (rare, weighted by rarity tier)
-* Shop UI (buy weapons/upgrades with currency)
-* Ammo pickups — color-coded outline by weapon type, spawn in stackable amounts (x5 / x10 / x15)
+### During Daytime
+* Health packs
+* Ammunition pickups
+* Shop interface
+* Barrier information
 
-## Zombie Types To Draw
-* Walker (base zombie) - Standard enemy, bulk of every wave; Plain, slightly decayed look, torn clothes; Baseline HP/speed/damage
-* Runner (fast zombie) - Rushes the player, punishes standing still; Leaner build, tattered/missing clothing, maybe leaning forward pose; Low HP, high speed, moderate damage
-* Brute (tank zombie) - Slow but dangerous, needs sustained fire; Bulkier silhouette, bigger arms/shoulders, darker/rotting color palette; High HP, low speed, high contact damage
-* Spitter (ranged zombie) - Adds ranged threat, forces movement instead of just standing and shooting; Bloated torso/head, maybe a distinct color (sickly green) to signal "ranged"; Low HP, throws projectile, low melee damage
-* Boss Zombie - Special wave-ending encounter - Noticeably larger scale, unique color scheme (e.g. deep red/black), maybe a visual "tell" for an attack animation; Very high HP, unique attack pattern, big currency drop
+## Pixel Art & Animation
+The game uses custom **2D pixel-art sprites and animations**.
 
-### Frames needed per zombie type (based on the sheet you showed me):
-* Walk cycle: 6-9 frames × 5 directions (down/down left/up/up left/left — flip left for right)
-* Hurt/death frame: 1-2 frames
-* Spitter needs an attack/throw frame; Boss needs its own attack animation
+### Zombie Animations
+Normal zombies use directional walking animations:
+* Down
+* Down Left
+* Down Right
+* Up
+* Up Left
+* Up Right
+* Left
+* Right
 
-### Weapons To Draw
+### Additional Animations
+* Hurt animation
+* Death animation
+* Spitter attack animation
+* Boss attack animations
 
-Group by rarity tier so spawn weighting is easy to implement later.
+The player uses a smaller animation set:
+* Idle Down
+* Idle Up
+* Idle Left
+* Walk Down
+* Walk Up
+* Walk Left
+* Right-facing animations through flipping
+* Hurt effect
 
-#### Common
-* Pistol - Starting weapon, low damage, high ammo availability
-#### Uncommon
-* Shotgun - High damage up close, short range
-* Rifle - Balanced damage/fire rate, better than pistol per shot
-##### Rare
-* Machine Gun - High sustained damage, high ammo consumption
+## Menus & UI
+The game includes:
+* Main Menu
+* Pause Menu
+* Game Over Screen
+* Victory Screen
+* Shop UI
+* HUD
+* Wave information
+* Kill counters
+* Resource indicators
 
-### Per weapon, you'll need:
-* Small icon sprite (for HUD "current weapon" indicator and shop listing)
-* Held/equipped sprite if you want the player to visibly hold it (optional polish)
-* Muzzle flash (1-2 frames, can be shared/reused across similar weapon types)
-* Bullet/projectile sprite (can share one bullet sprite across pistol/rifle/SMG, and a distinct one for shotgun pellets or sniper rounds if you want visual variety)
+## Controls
+| Key / Input | Action |
+|---------|----------|
+| W | Move Up |
+| A | Move Left |
+| S | Move Down |
+| D | Move Right |
+| Mouse | Aim |
+| Left Mouse Button | Shoot |
+| Arrow Keys | Position Barrier |
+| Space | Rotate Barrier |
+| Enter | Confirm Barrier Placement |
+| B | Open Shop |
+| Esc | Pause Game |
 
-### Ammo Pickups to Draw
-Base ammo pickup shape, recolored/outlined per weapon category:
-* Green outline — pistol/SMG ammo
-* Blue outline — rifle ammo
-* Purple outline — sniper/machine gun ammo
-* Gold outline — legendary weapon ammo (if applicable)
+## Technologies
+The game is developed using:
+* **Python** — main programming language
+* **PyGame** — 2D game development framework
+* **2D Pixel Art** — characters, weapons, items and UI assets
+* **Sprite Animation** — character movement and combat animations
+* **GitHub** — version control and project management
 
-Each spawn in stackable quantities (x5 / x10 / x15) — this can just be a text label over the same sprite, no need for separate art per quantity.
+## Development Status
+The core gameplay systems are implemented, including:
+* Player movement
+* Shooting and aiming
+* Zombie AI
+* Zombie health
+* Multiple weapons
+* Weapon rarity
+* Ammunition system
+* Health system
+* Currency
+* Shop
+* Day/night cycle
+* Wave progression
+* Difficulty scaling
+* Boss waves
+* Kill counters
+* Barriers
+* Main menu
+* Pause menu
+* Game over screen
+* Victory condition after Wave 10
 
-Suggested Player Sprite Frame List
-* Idle (down-facing minimum, ideally 1 per direction)
-* Walk cycle: 6-9 frames × 5 directions (down/down left/up/up left/left flip for right)
-* Hurt frame (flash red via code)
-
-#### Optional: death frame for game-over screen
+### Remaining Work
+* Runner walking animations
+* Spitter walking animations
+* Spitter attack animation
+* Boss walking animations
+* Boss attack animation
+* Player animations
+* Final animation polishing
