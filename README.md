@@ -182,13 +182,16 @@ The game includes:
 | A | Move Left |
 | S | Move Down |
 | D | Move Right |
-| Mouse | Aim |
-| Left Mouse Button | Shoot |
-| Arrow Keys | Position Barrier |
-| Space | Rotate Barrier |
-| Enter | Confirm Barrier Placement |
-| B | Open Shop |
-| Esc | Pause Game |
+| Mouse | Aim / Interact with UI |
+| Left Mouse Button | Shoot at night / Interact with shop and barricade UI during the day |
+| 1 / 2 / 3 / 4 | Switch weapon if owned |
+| ` | Toggle God Mode (testing purposes) |
+| B | Start placing a barricade during the day |
+| Arrow Keys | Move barricade preview |
+| Space | Rotate barricade |
+| Enter | Confirm barricade placement |
+| R | Repair nearest barricade in range during the day |
+| Esc | Cancel barricade placement / Pause game |
 
 ## Technologies
 The game is developed using:
