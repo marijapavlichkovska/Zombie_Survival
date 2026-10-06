@@ -1,16 +1,9 @@
 """
-Shop UI for the day/break phase.
-
-The shop panel is now opened/closed by clicking the shop button image
-(assets/shop.png), positioned center-right on screen -- rather than
-always being visible during the day. Once open, items can still be
-bought either by pressing the item's key (F1-F5) or by clicking it;
-both paths go through try_buy_item() so the purchase logic only
-exists once.
-
-The panel layout is computed by get_layout() and used by BOTH the
-draw function and the click-hit-testing in main.py, so the visible
-buttons and the clickable areas can never drift out of sync.
+The shop panel can be opened/closed by clicking the shop button image
+(assets/shop.png), positioned center-right on screen. Once open, items 
+can still be bought either by pressing the item's key (F1-F5) or by 
+clicking it; both paths go through try_buy_item() so the purchase logic 
+only exists once.
 """
 
 import pygame
@@ -31,14 +24,14 @@ KEY_LABELS = {
     pygame.K_F5: "F5",
 }
 
-PANEL_Y = 55  # raised up close under the wave/timer HUD line to remove the empty gap
+PANEL_Y = 55
 ROW_HEIGHT = 26
 
 
 def get_layout():
-    """Returns the panel rect and a rect for every clickable row
-    (shop items, then build, then repair), all in one place so
-    drawing and click-detection always agree on where things are."""
+    """Returns the panel rect and a rect for every clickable row 
+    all in one place so drawing and click-detection always agree 
+    on where things are."""
     panel_w = 360
     panel_h = 30 + len(SHOP_ITEMS) * ROW_HEIGHT + 66
     x = SCREEN_WIDTH - panel_w - 20
@@ -62,8 +55,7 @@ def get_shop_button_rect():
 
 def draw_shop_button(screen, mouse_pos=None):
     """Draws the clickable shop-open/close button, center-right of
-    the screen. Uses assets/shop.png if present, else a simple
-    fallback circle+label."""
+    the screen."""
     rect = get_shop_button_rect()
     icon = load_image("shop.png", size=SHOP_BUTTON_SIZE)
     if icon is not None:
@@ -137,11 +129,6 @@ def handle_shop_click(mouse_pos, player):
 
 
 def _draw_translucent_rect(screen, rect, color_with_alpha):
-    """pygame.draw.rect() ignores alpha when drawing directly onto the
-    main display surface, so a fill like (255,255,255,40) comes out
-    fully opaque instead of a subtle highlight. Drawing onto a small
-    SRCALPHA surface first and blitting it gives the actual
-    translucency."""
     highlight = pygame.Surface((rect.width, rect.height), pygame.SRCALPHA)
     highlight.fill(color_with_alpha)
     screen.blit(highlight, rect.topleft)
@@ -164,9 +151,6 @@ def draw_shop(screen, font, player, mouse_pos=None):
 
         hovered = mouse_pos is not None and rect.collidepoint(mouse_pos) and can_afford and not already_owned
         if hovered:
-            # a clearly-white highlight, per request -- so the text
-            # drawn on top of it needs to switch to black, not the
-            # usual white/grey, to stay readable
             _draw_translucent_rect(screen, rect, (255, 255, 255, 235))
             pygame.draw.rect(screen, WHITE, rect, width=1, border_radius=3)
 
