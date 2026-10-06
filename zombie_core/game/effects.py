@@ -3,17 +3,26 @@
 import pygame
 
 from game.settings import HURT_FLASH_DURATION, DEATH_POOF_DURATION
+from game.character_sprite import prepare_character_frame
 
 
-def draw_hurt_overlay(screen, center_pos, size):
+def draw_hurt_overlay(screen, center_pos, size, sprite=None, direction="down"):
     """Red transparent flash on player/zombie when damaged."""
     if size <= 0:
         return
-    pad = 4
-    dim = int(size + pad)
+
+    frame = prepare_character_frame(sprite, size, direction) if sprite is not None else None
+    if frame is not None:
+        colored = pygame.Surface(frame.get_size(), pygame.SRCALPHA)
+        colored.fill((220, 30, 30, 115))
+        colored.blit(frame, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
+        screen.blit(colored, colored.get_rect(center=(int(center_pos.x), int(center_pos.y))))
+        return
+
+    dim = int(size)
     surf = pygame.Surface((dim, dim), pygame.SRCALPHA)
-    pygame.draw.ellipse(surf, (220, 30, 30, 115), surf.get_rect())
-    screen.blit(surf, (int(center_pos.x - dim / 2), int(center_pos.y - dim / 2)))
+    pygame.draw.rect(surf, (220, 30, 30, 115), surf.get_rect(), border_radius=3)
+    screen.blit(surf, surf.get_rect(center=(int(center_pos.x), int(center_pos.y))))
 
 
 class DeathPoof:

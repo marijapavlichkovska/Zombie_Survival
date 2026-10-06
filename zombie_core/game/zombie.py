@@ -3,7 +3,8 @@ import random
 
 from game.settings import (
     ZOMBIE_TYPES, ZOMBIE_ATTACK_COOLDOWN, ZOMBIE_ATTACK_RANGE, DIRECT_SIGHT_RANGE,
-    SPITTER_RANGE, SPITTER_FIRE_COOLDOWN, SPITTER_WINDUP, BLACK, RED,
+    SPITTER_RANGE, SPITTER_RANGE_TILES, SPITTER_FIRE_COOLDOWN, SPITTER_WINDUP,
+    GROUND_TILE_SIZE, BLACK, RED,
     BARRICADE_BLOCK_RADIUS, CHARACTER_DESIGN_PATHS, SPIT_TELEGRAPH_COLOR,
 )
 from game.weapons import EnemyProjectile
@@ -215,7 +216,9 @@ class Zombie:
             pygame.draw.rect(screen, self.color, self.rect, border_radius=3)
             pygame.draw.rect(screen, BLACK, self.rect, width=2, border_radius=3)
         if self.hurt_flash > 0:
-            draw_hurt_overlay(screen, self.pos, self.size)
+            draw_hurt_overlay(
+                screen, self.pos, self.size, self.character_sprite, self.direction
+            )
         # //to bring back when sprites are done
         # if self.sprite_sheet is not None:
         #     frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
@@ -260,10 +263,10 @@ class Zombie:
         pygame.draw.line(screen, SPIT_TELEGRAPH_COLOR, self.pos, end, 3)
 
         windup_ratio = self.spit_windup / SPITTER_WINDUP
-        drop_count = 6
-        for i in range(1, drop_count + 1):
-            t = i / (drop_count + 1)
-            drop = self.pos + direction * (reach * t)
+        for i in range(1, SPITTER_RANGE_TILES + 1):
+            drop = self.pos + direction * (i * GROUND_TILE_SIZE)
+            if drop.distance_to(self.pos) > reach:
+                break
             radius = 3 + int(3 * (1.0 - windup_ratio))
             pygame.draw.circle(screen, SPIT_TELEGRAPH_COLOR, (int(drop.x), int(drop.y)), radius)
             pygame.draw.circle(

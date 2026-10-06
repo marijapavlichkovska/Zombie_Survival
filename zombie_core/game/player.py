@@ -156,11 +156,23 @@ class Player:
         return self.health > 0
 
     def draw(self, screen):
+        # aim-direction line ("the stick") behind the sprite
+        if WEAPON_COLORED_OUTLINES:
+            line_color = WEAPON_OUTLINE_COLORS.get(self.current_weapon, WHITE)
+        else:
+            line_color = WHITE
+        angle_rad = math.radians(self.aim_angle)
+        end_x = self.pos.x + math.cos(angle_rad) * 24
+        end_y = self.pos.y - math.sin(angle_rad) * 24
+        pygame.draw.line(screen, line_color, self.pos, (end_x, end_y), 3)
+
         if not draw_character_design(screen, self.character_sprite, self.pos, self.size, self.direction):
             pygame.draw.rect(screen, GREEN, self.rect, border_radius=4)
             pygame.draw.rect(screen, WHITE, self.rect, width=2, border_radius=4)
         if self.hurt_flash > 0:
-            draw_hurt_overlay(screen, self.pos, self.size)
+            draw_hurt_overlay(
+                screen, self.pos, self.size, self.character_sprite, self.direction
+            )
         # //to bring back when sprites are done
         # if self.sprite_sheet is not None:
         #     frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
@@ -170,15 +182,3 @@ class Player:
         # else:
         #     pygame.draw.rect(screen, GREEN, self.rect, border_radius=4)
         #     pygame.draw.rect(screen, WHITE, self.rect, width=2, border_radius=4)
-
-        # aim-direction line ("the stick"), drawn regardless of
-        # sprite/fallback -- colored to match the equipped weapon
-        # when WEAPON_COLORED_OUTLINES is on.
-        if WEAPON_COLORED_OUTLINES:
-            line_color = WEAPON_OUTLINE_COLORS.get(self.current_weapon, WHITE)
-        else:
-            line_color = WHITE
-        angle_rad = math.radians(self.aim_angle)
-        end_x = self.pos.x + math.cos(angle_rad) * 24
-        end_y = self.pos.y - math.sin(angle_rad) * 24
-        pygame.draw.line(screen, line_color, self.pos, (end_x, end_y), 3)

@@ -4,6 +4,7 @@ import math
 from game.settings import (
     WEAPONS, BULLET_RADIUS, BULLET_SPEED, SCREEN_WIDTH, SCREEN_HEIGHT,
     SPITTER_PROJECTILE_SPEED, SPITTER_PROJECTILE_DAMAGE, SPIT_PROJECTILE_COLOR,
+    SPITTER_PROJECTILE_MAX_DISTANCE,
 )
 
 
@@ -34,6 +35,7 @@ class EnemyProjectile:
     not home in, so moving after it's launched lets you dodge it."""
 
     def __init__(self, pos, target_pos):
+        self.origin = pygame.Vector2(pos)
         self.pos = pygame.Vector2(pos)
         direction = target_pos - self.pos
         if direction.length_squared() == 0:
@@ -45,7 +47,9 @@ class EnemyProjectile:
 
     def update(self, dt):
         self.pos += self.velocity * dt
-        if (self.pos.x < 0 or self.pos.x > SCREEN_WIDTH or
+        if self.origin.distance_to(self.pos) >= SPITTER_PROJECTILE_MAX_DISTANCE:
+            self.alive = False
+        elif (self.pos.x < 0 or self.pos.x > SCREEN_WIDTH or
                 self.pos.y < 0 or self.pos.y > SCREEN_HEIGHT):
             self.alive = False
 

@@ -67,30 +67,32 @@ WAVE_TIME_LIMIT_STEP = 7.0
 # //to bring back when sprites are done
 # ZOMBIE_FRAME_SIZE = 32     # size of one frame in assets/zombies/<type>/walk.png
 # ZOMBIE_ANIM_SPEED = 0.15   # seconds per animation frame while moving
+# Kill payouts tuned so a full clear through wave 4 stays under the
+# machine gun (120); wave 5 + boss typically reaches it on the wave 6 break.
 ZOMBIE_TYPES = {
     "walker": {
         "size": 44, "speed": 55, "health": 30, "contact_damage": 8,
-        "color": (60, 110, 60), "currency": 10, "ranged": False,
+        "color": (60, 110, 60), "currency": 3, "ranged": False,
         "hearing_range": 380,
     },
     "runner": {
         "size": 36, "speed": 95, "health": 16, "contact_damage": 6,
-        "color": (170, 150, 60), "currency": 14, "ranged": False,
+        "color": (170, 150, 60), "currency": 4, "ranged": False,
         "hearing_range": 450,
     },
     "brute": {
         "size": 62, "speed": 35, "health": 90, "contact_damage": 15,
-        "color": (110, 60, 50), "currency": 22, "ranged": False,
+        "color": (110, 60, 50), "currency": 5, "ranged": False,
         "hearing_range": 340,
     },
     "spitter": {
         "size": 40, "speed": 40, "health": 20, "contact_damage": 4,
-        "color": (110, 150, 50), "currency": 18, "ranged": True,
+        "color": (110, 150, 50), "currency": 4, "ranged": True,
         "hearing_range": 420,
     },
     "boss": {
         "size": 76, "speed": 42, "health": 260, "contact_damage": 22,
-        "color": (150, 25, 25), "currency": 80, "ranged": False,
+        "color": (150, 25, 25), "currency": 20, "ranged": False,
         "hearing_range": 500,
     },
 }
@@ -116,7 +118,10 @@ ZOMBIE_ATTACK_COOLDOWN = 0.7
 ZOMBIE_ATTACK_RANGE = 6          # extra px beyond touching before contact registers
 DIRECT_SIGHT_RANGE = 220         # zombies "see" the player at this range regardless of noise
 
-SPITTER_RANGE = 350
+SPITTER_RANGE_TILES = 4          # max distance spitter can shoot / telegraph length
+SPITTER_PROJECTILE_TILES = 5     # projectile vanishes after this many tiles (if no hit)
+SPITTER_RANGE = SPITTER_RANGE_TILES * GROUND_TILE_SIZE
+SPITTER_PROJECTILE_MAX_DISTANCE = SPITTER_PROJECTILE_TILES * GROUND_TILE_SIZE
 SPITTER_FIRE_COOLDOWN = 2.0
 SPITTER_WINDUP = 0.65
 SPITTER_PROJECTILE_SPEED = 220
