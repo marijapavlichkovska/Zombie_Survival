@@ -65,15 +65,15 @@ Ammo pickups are available in different quantities:
 
 ## Zombie Types
 The game contains several zombie types with different characteristics.
-* **Walker** — Standard zombie with normal speed, health, and basic chase behavior.
-* **Runner** — Fast zombie with high movement speed but lower health.
-* **Brute** — Slow, high-health zombie that requires more shots to defeat.
-* **Spitter** — Ranged zombie that keeps its distance and attacks the player from afar.
-  * **Ranged Attack** — Attacks the player from a distance.
-* **Boss Zombie** — Powerful zombie appearing on Wave 5 and 10, with high health, unique attacks, and a large currency reward.
-  * **Charge** — Rushes toward the player, requiring them to dodge.
-  * **Ground Slam** — Deals area-of-effect damage around the boss.
-  * **Summon** — Summons additional zombies to increase the pressure on the player.
+* **Walker** - Standard zombie with normal speed, health, and basic chase behavior.
+* **Runner** - Fast zombie with high movement speed but lower health.
+* **Brute** - Slow, high-health zombie that requires more shots to defeat.
+* **Spitter** - Ranged zombie that keeps its distance and attacks the player from afar.
+  * **Ranged Attack** - Attacks the player from a distance.
+* **Boss Zombie** - Powerful zombie appearing on Wave 5 and 10, with high health, unique attacks, and a large currency reward.
+  * **Charge** - Rushes toward the player, requiring them to dodge.
+  * **Ground Slam** - Deals area-of-effect damage around the boss.
+  * **Summon** - Summons additional zombies to increase the pressure on the player.
 
 ## Difficulty Scaling
 Zombie difficulty increases as the player progresses through the waves.
