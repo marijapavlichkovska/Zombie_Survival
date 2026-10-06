@@ -10,7 +10,7 @@ from game.settings import (
 from game.weapons import EnemyProjectile
 from game.character_sprite import load_character_design, draw_character_design
 from game.effects import draw_hurt_overlay, trigger_hurt_flash, tick_hurt_flash
-# //to bring back when sprites are done
+# todo: bring back when sprites are done
 # from game.spritesheet import try_load_spritesheet
 
 
@@ -50,7 +50,7 @@ class Zombie:
 
         self.character_sprite = load_character_design(zombie_type, CHARACTER_DESIGN_PATHS)
         self.direction = "down"
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # folder = ZOMBIE_ASSET_FOLDER.get(zombie_type, zombie_type)
         # self.sprite_sheet = try_load_spritesheet(f"zombies/{folder}/walk.png", ZOMBIE_FRAME_SIZE, 4)
         # self.frame_index = 0
@@ -187,7 +187,7 @@ class Zombie:
             self.direction = "down" if direction_vec.y > 0 else "up"
 
     def _animate(self, dt, moving):
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # if self.sprite_sheet is None:
         #     return
         # if moving:
@@ -219,7 +219,7 @@ class Zombie:
             draw_hurt_overlay(
                 screen, self.pos, self.size, self.character_sprite, self.direction
             )
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # if self.sprite_sheet is not None:
         #     frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
         #     if frame.get_width() != self.size:
