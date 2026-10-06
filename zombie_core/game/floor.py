@@ -3,7 +3,7 @@ Renders a tiled floor with some visual depth (alternating tile shades,
 grout lines, and thicker panel seams every few tiles) instead of a
 flat single-color fill.
 
-The floor never changes at runtime, so we build it once into a cached
+The floor never changes at runtime, so it builds once into a cached
 Surface and just blit that every frame rather than redrawing the tiles.
 """
 
