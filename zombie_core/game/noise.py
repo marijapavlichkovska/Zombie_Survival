@@ -1,6 +1,4 @@
 """
-Noise system.
-
 Every noise-making action (walking, shooting) registers a NoiseEvent
 here with a world position and a radius. Zombies query
 NoiseManager.loudest_audible() each frame to find the best sound
