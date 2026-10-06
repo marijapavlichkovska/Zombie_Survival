@@ -1,10 +1,7 @@
 """
 Loads images from assets/ by relative path, with caching so the same
 file is never read from disk twice. If a file doesn't exist yet,
-load_image() returns None instead of crashing -- every piece of code
-that calls this is written to fall back to the old shape-drawing look
-when that happens, so the game keeps running even for art you haven't
-made yet.
+load_image() returns None instead of crashing.
 """
 
 import pygame
@@ -17,7 +14,7 @@ _image_cache = {}
 
 
 def load_image(relative_path, size=None):
-    """relative_path is relative to assets/, e.g. 'materials/wood.png'.
+    """relative_path is relative to assets/.
     Returns a pygame Surface, or None if the file isn't there."""
     key = (relative_path, size)
     if key in _image_cache:
