@@ -34,7 +34,7 @@ WOOD_COLOR = (150, 110, 60)
 PLAYER_SIZE = 70
 PLAYER_SPEED = 260
 PLAYER_MAX_HEALTH = 100
-# //to bring back when sprites are done
+# todo: bring back when sprites are done
 # PLAYER_FRAME_SIZE = 32     # size of one frame in assets/player/walk.png
 # PLAYER_ANIM_SPEED = 0.12   # seconds per animation frame while moving
 
@@ -64,7 +64,7 @@ WAVE_TIME_LIMIT_BASE = 55.0
 WAVE_TIME_LIMIT_STEP = 7.0   
 
 # --- Zombie types ---
-# //to bring back when sprites are done
+# todo: bring back when sprites are done
 # ZOMBIE_FRAME_SIZE = 32     # size of one frame in assets/zombies/<type>/walk.png
 # ZOMBIE_ANIM_SPEED = 0.15   # seconds per animation frame while moving
 # Kill payouts tuned so a full clear through wave 4 stays under the
@@ -132,7 +132,7 @@ SPIT_PROJECTILE_COLOR = (158, 188, 98)
 HURT_FLASH_DURATION = 0.28
 DEATH_POOF_DURATION = 0.5
 
-# //to bring back when sprites are done
+# todo: bring back when sprites are done
 # Maps each internal zombie type key to its asset folder name
 # ZOMBIE_ASSET_FOLDER = {
 #     "walker": "normal",
