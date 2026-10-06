@@ -18,7 +18,7 @@ from game.zombie import Zombie
 
 class BossZombie(Zombie):
     """
-    Wave boss with three telegraphed specials:
+    Wave boss with three special attacks:
       Charge  — fast rush in a fixed direction (dodge sideways).
       Slam    — AOE after a windup (keep your distance).
       Summon  — spawns walker adds (crowd control).
