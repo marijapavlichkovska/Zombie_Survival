@@ -36,16 +36,10 @@ class Player:
 
         self.total_kills = 0
 
-        # God mode: toggled with the ` key (see settings.GOD_MODE_KEY).
-        # The actual "stay at full health / full ammo" enforcement
-        # happens once per frame in main.py's update loop, rather than
-        # here, so it works no matter where damage or ammo consumption
-        # happens -- simplest way to guarantee it's never bypassed.
+        # God mode: toggled with the ` key
         self.god_mode = False
 
-        # Sprite rendering: uses assets/player/walk.png if present
-        # (directional walk cycle, faces movement direction), falls
-        # back to the plain colored square if that file doesn't exist.
+        # Sprite rendering: uses assets/player/walk.png
         self.sprite_sheet = try_load_spritesheet("player/walk.png", PLAYER_FRAME_SIZE, 4)
         self.direction = "down"
         self.frame_index = 0
@@ -162,8 +156,7 @@ class Player:
 
         # aim-direction line ("the stick"), drawn regardless of
         # sprite/fallback -- colored to match the equipped weapon
-        # when WEAPON_COLORED_OUTLINES is on (see settings.py to
-        # disable and fall back to plain white).
+        # when WEAPON_COLORED_OUTLINES is on.
         if WEAPON_COLORED_OUTLINES:
             line_color = WEAPON_OUTLINE_COLORS.get(self.current_weapon, WHITE)
         else:
