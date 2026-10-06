@@ -1,5 +1,4 @@
 """
-Zombie Survival - v5
 Controls:
     WASD            - move
     Mouse           - aim / click the shop button, shop items, and buttons
