@@ -6,7 +6,6 @@ from game.assets import load_image
 
 
 def load_character_design(design_key, paths):
-    """design_key matches game ids (player, walker, boss, ...)."""
     relative = paths.get(design_key)
     if relative is None:
         return None
@@ -14,7 +13,6 @@ def load_character_design(design_key, paths):
 
 
 def prepare_character_frame(image, size, direction):
-    """Scaled/flipped frame used for draw and hurt overlay."""
     if image is None:
         return None
 
@@ -27,7 +25,6 @@ def prepare_character_frame(image, size, direction):
 
 
 def draw_character_design(screen, image, center_pos, size, direction):
-    """Blits a design PNG scaled to size; flips horizontally when facing left."""
     frame = prepare_character_frame(image, size, direction)
     if frame is None:
         return False
