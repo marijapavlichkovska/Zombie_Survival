@@ -16,6 +16,7 @@ from game.settings import (
     SCREEN_WIDTH, SCREEN_HEIGHT, STATE_WAVE, WIN_AT_WAVE,
 )
 from game.assets import load_image
+from game.wave import is_boss_wave
 
 ICON_SIZE = 26
 WEAPON_SLOT_SIZE = 44
@@ -77,13 +78,18 @@ def draw_hud(screen, font, player, wave_number, zombies_remaining, state, state_
 
     # --- day/night state + timer, top-right ---
     if state == STATE_WAVE:
-        timer_color = RED if state_timer < 10 else WHITE
-        state_str = "NIGHT  -  Zombies left: " + str(zombies_remaining)
-        timer_str = f"Overrun in: {state_timer:.1f}s"
+        boss_night = is_boss_wave(wave_number)
+        if boss_night:
+            state_str = f"NIGHT  -  BOSS WAVE  -  Zombies left: {zombies_remaining}"
+        else:
+            state_str = "NIGHT  -  Zombies left: " + str(zombies_remaining)
         state_text = font.render(state_str, True, WHITE)
-        timer_text = font.render(timer_str, True, timer_color)
         screen.blit(state_text, (SCREEN_WIDTH - state_text.get_width() - 20, 20))
-        screen.blit(timer_text, (SCREEN_WIDTH - timer_text.get_width() - 20, 44))
+        if not boss_night:
+            timer_color = RED if state_timer < 10 else WHITE
+            timer_str = f"Overrun in: {state_timer:.1f}s"
+            timer_text = font.render(timer_str, True, timer_color)
+            screen.blit(timer_text, (SCREEN_WIDTH - timer_text.get_width() - 20, 44))
     else:
         state_str = f"DAY - Break  -  Next wave in {state_timer:.1f}s"
         state_text = font.render(state_str, True, WHITE)

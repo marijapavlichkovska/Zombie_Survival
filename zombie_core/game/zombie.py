@@ -3,11 +3,14 @@ import random
 
 from game.settings import (
     ZOMBIE_TYPES, ZOMBIE_ATTACK_COOLDOWN, ZOMBIE_ATTACK_RANGE, DIRECT_SIGHT_RANGE,
-    SPITTER_RANGE, SPITTER_FIRE_COOLDOWN, BLACK, RED, BARRICADE_BLOCK_RADIUS,
-    ZOMBIE_ASSET_FOLDER, ZOMBIE_FRAME_SIZE, ZOMBIE_ANIM_SPEED,
+    SPITTER_RANGE, SPITTER_FIRE_COOLDOWN, SPITTER_WINDUP, BLACK, RED,
+    BARRICADE_BLOCK_RADIUS, CHARACTER_DESIGN_PATHS, SPIT_TELEGRAPH_COLOR,
 )
 from game.weapons import EnemyProjectile
-from game.spritesheet import try_load_spritesheet
+from game.character_sprite import load_character_design, draw_character_design
+from game.effects import draw_hurt_overlay, trigger_hurt_flash, tick_hurt_flash
+# //to bring back when sprites are done
+# from game.spritesheet import try_load_spritesheet
 
 
 class Zombie:
@@ -38,14 +41,19 @@ class Zombie:
 
         self.attack_cooldown = 0.0
         self.fire_cooldown = SPITTER_FIRE_COOLDOWN * random.uniform(0.5, 1.0)
+        self.spit_windup = 0.0
+        self.spit_target = None
+        self.hurt_flash = 0.0
 
         self.state = "wander"
 
-        folder = ZOMBIE_ASSET_FOLDER.get(zombie_type, zombie_type)
-        self.sprite_sheet = try_load_spritesheet(f"zombies/{folder}/walk.png", ZOMBIE_FRAME_SIZE, 4)
+        self.character_sprite = load_character_design(zombie_type, CHARACTER_DESIGN_PATHS)
         self.direction = "down"
-        self.frame_index = 0
-        self.anim_timer = 0.0
+        # //to bring back when sprites are done
+        # folder = ZOMBIE_ASSET_FOLDER.get(zombie_type, zombie_type)
+        # self.sprite_sheet = try_load_spritesheet(f"zombies/{folder}/walk.png", ZOMBIE_FRAME_SIZE, 4)
+        # self.frame_index = 0
+        # self.anim_timer = 0.0
 
     @property
     def rect(self):
@@ -94,15 +102,33 @@ class Zombie:
 
         # --- ranged zombie behavior (spitter) ---
         if self.ranged:
-            if self.state in ("chasing", "investigating") and target is not None:
-                # keep some distance rather than closing all the way in
+            if self.fire_cooldown > 0:
+                self.fire_cooldown -= dt
+
+            spitting = self.spit_windup > 0
+            if spitting:
+                self.spit_windup -= dt
+                to_target = self.spit_target - self.pos
+                if to_target.length_squared() > 0:
+                    self._face(to_target)
+                if self.spit_windup <= 0:
+                    enemy_projectiles.append(EnemyProjectile(self.pos, self.spit_target))
+                    self.fire_cooldown = SPITTER_FIRE_COOLDOWN
+                    self.spit_windup = 0.0
+            elif self.state in ("chasing", "investigating") and target is not None:
                 if distance_to_player > SPITTER_RANGE * 0.6:
                     moving = self._move_toward(target, dt)
             elif self.state == "wander":
                 moving = self._wander(dt, player)
-            if self.state == "chasing" and distance_to_player <= SPITTER_RANGE and self.fire_cooldown <= 0:
-                enemy_projectiles.append(EnemyProjectile(self.pos, player.pos))
-                self.fire_cooldown = SPITTER_FIRE_COOLDOWN
+
+            if (
+                not spitting
+                and self.state == "chasing"
+                and distance_to_player <= SPITTER_RANGE
+                and self.fire_cooldown <= 0
+            ):
+                self.spit_target = pygame.Vector2(player.pos)
+                self.spit_windup = SPITTER_WINDUP
 
         # --- zombie behavior for rest of the zombies ---
         else:
@@ -127,6 +153,7 @@ class Zombie:
                 self.attack_cooldown = ZOMBIE_ATTACK_COOLDOWN
 
         self._animate(dt, moving)
+        tick_hurt_flash(self, dt)
 
     def _move_toward(self, target_pos, dt):
         direction = target_pos - self.pos
@@ -159,19 +186,23 @@ class Zombie:
             self.direction = "down" if direction_vec.y > 0 else "up"
 
     def _animate(self, dt, moving):
-        if self.sprite_sheet is None:
-            return
-        if moving:
-            self.anim_timer += dt
-            if self.anim_timer >= ZOMBIE_ANIM_SPEED:
-                self.anim_timer = 0.0
-                frames = self.sprite_sheet.get_frames(self.direction)
-                self.frame_index = (self.frame_index + 1) % len(frames)
-        else:
-            self.frame_index = 0
-            self.anim_timer = 0.0
+        # //to bring back when sprites are done
+        # if self.sprite_sheet is None:
+        #     return
+        # if moving:
+        #     self.anim_timer += dt
+        #     if self.anim_timer >= ZOMBIE_ANIM_SPEED:
+        #         self.anim_timer = 0.0
+        #         frames = self.sprite_sheet.get_frames(self.direction)
+        #         self.frame_index = (self.frame_index + 1) % len(frames)
+        # else:
+        #     self.frame_index = 0
+        #     self.anim_timer = 0.0
+        pass
 
     def take_damage(self, amount):
+        if amount > 0:
+            trigger_hurt_flash(self)
         self.health = max(0, self.health - amount)
 
     @property
@@ -179,14 +210,21 @@ class Zombie:
         return self.health <= 0
 
     def draw(self, screen):
-        if self.sprite_sheet is not None:
-            frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
-            if frame.get_width() != self.size:
-                frame = pygame.transform.scale(frame, (self.size, self.size))
-            screen.blit(frame, self.rect.topleft)
-        else:
+        self._draw_spit_telegraph(screen)
+        if not draw_character_design(screen, self.character_sprite, self.pos, self.size, self.direction):
             pygame.draw.rect(screen, self.color, self.rect, border_radius=3)
             pygame.draw.rect(screen, BLACK, self.rect, width=2, border_radius=3)
+        if self.hurt_flash > 0:
+            draw_hurt_overlay(screen, self.pos, self.size)
+        # //to bring back when sprites are done
+        # if self.sprite_sheet is not None:
+        #     frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
+        #     if frame.get_width() != self.size:
+        #         frame = pygame.transform.scale(frame, (self.size, self.size))
+        #     screen.blit(frame, self.rect.topleft)
+        # else:
+        #     pygame.draw.rect(screen, self.color, self.rect, border_radius=3)
+        #     pygame.draw.rect(screen, BLACK, self.rect, width=2, border_radius=3)
 
         if self.health < self.max_health:
             bar_w, bar_h = self.size, 5
@@ -207,3 +245,27 @@ class Zombie:
         icon_y = self.rect.top - 2
         pygame.draw.line(screen, RED, (icon_x, icon_y), (icon_x, icon_y + 6), 3)
         pygame.draw.circle(screen, RED, (icon_x, icon_y + 10), 2)
+
+    def _draw_spit_telegraph(self, screen):
+        if not self.ranged or self.spit_windup <= 0 or self.spit_target is None:
+            return
+
+        direction = self.spit_target - self.pos
+        if direction.length_squared() < 1:
+            return
+        direction = direction.normalize()
+        reach = min(self.pos.distance_to(self.spit_target), SPITTER_RANGE)
+        end = self.pos + direction * reach
+
+        pygame.draw.line(screen, SPIT_TELEGRAPH_COLOR, self.pos, end, 3)
+
+        windup_ratio = self.spit_windup / SPITTER_WINDUP
+        drop_count = 6
+        for i in range(1, drop_count + 1):
+            t = i / (drop_count + 1)
+            drop = self.pos + direction * (reach * t)
+            radius = 3 + int(3 * (1.0 - windup_ratio))
+            pygame.draw.circle(screen, SPIT_TELEGRAPH_COLOR, (int(drop.x), int(drop.y)), radius)
+            pygame.draw.circle(
+                screen, (210, 228, 175), (int(drop.x), int(drop.y)), max(1, radius - 2),
+            )

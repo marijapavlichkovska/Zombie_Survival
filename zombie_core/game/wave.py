@@ -8,6 +8,10 @@ from game.zombie import Zombie
 from game.boss_zombie import BossZombie
 
 
+def is_boss_wave(wave_number):
+    return wave_number % BOSS_WAVE_INTERVAL == 0
+
+
 def _spawn_edge_position():
     edge = random.choice(["top", "bottom", "left", "right"])
     if edge == "top":

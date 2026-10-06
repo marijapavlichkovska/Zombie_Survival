@@ -3,7 +3,7 @@ import math
 
 from game.settings import (
     WEAPONS, BULLET_RADIUS, BULLET_SPEED, SCREEN_WIDTH, SCREEN_HEIGHT,
-    SPITTER_PROJECTILE_SPEED, SPITTER_PROJECTILE_DAMAGE,
+    SPITTER_PROJECTILE_SPEED, SPITTER_PROJECTILE_DAMAGE, SPIT_PROJECTILE_COLOR,
 )
 
 
@@ -50,7 +50,9 @@ class EnemyProjectile:
             self.alive = False
 
     def draw(self, screen):
-        pygame.draw.circle(screen, (140, 180, 40), (int(self.pos.x), int(self.pos.y)), self.radius)
+        x, y = int(self.pos.x), int(self.pos.y)
+        pygame.draw.circle(screen, SPIT_PROJECTILE_COLOR, (x, y), self.radius)
+        pygame.draw.circle(screen, (210, 230, 170), (x, y), max(2, self.radius - 3))
 
 
 def fire_weapon(player, bullets_list, noise_manager):

@@ -35,7 +35,7 @@ from game.player import Player
 from game.weapons import fire_weapon
 from game.barricade import Barricade
 from game.noise import NoiseManager
-from game.wave import spawn_wave
+from game.wave import spawn_wave, is_boss_wave
 from game.shop import (
     handle_shop_input, handle_shop_click, draw_shop, get_layout,
     get_shop_button_rect, draw_shop_button,
@@ -48,6 +48,7 @@ from game.collision import circle_rect_collide
 from game.floor import draw_floor
 from game.pickup import spawn_break_pickups, update_pickups
 from game.notifications import Notifications
+from game.effects import DeathPoof
 
 
 WEAPON_KEYS = {
@@ -56,6 +57,8 @@ WEAPON_KEYS = {
 
 
 def wave_time_limit(wave_number):
+    if is_boss_wave(wave_number):
+        return None
     return WAVE_TIME_LIMIT_BASE + (wave_number - 1) * WAVE_TIME_LIMIT_STEP
 
 
@@ -174,6 +177,7 @@ class GameSession:
 
         self.end_reason = ""
         self.won = False
+        self.effects = []
 
 
 def apply_god_mode(player):
@@ -330,6 +334,7 @@ def update_playing(dt, session):
     apply_god_mode(player)
     session.noise_manager.update(dt)
     session.notifications.update(dt)
+    session.effects = [effect for effect in session.effects if effect.update(dt)]
 
     if session.state == STATE_BREAK:
         session.pickups = update_pickups(player, session.pickups)
@@ -340,7 +345,8 @@ def update_playing(dt, session):
         if session.state_timer <= 0:
             session.zombies.extend(spawn_wave(session.wave_number))
             session.state = STATE_WAVE
-            session.state_timer = wave_time_limit(session.wave_number)
+            limit = wave_time_limit(session.wave_number)
+            session.state_timer = limit if limit is not None else 0.0
             session.placement = None
             session.shop_open = False
     elif session.state == STATE_WAVE:
@@ -353,10 +359,12 @@ def update_playing(dt, session):
             session.state_timer = BREAK_DURATION
             session.pickups = spawn_break_pickups(player.pos)
         else:
-            session.state_timer -= dt
-            if session.state_timer <= 0 and not player.god_mode:
-                player.health = 0  # triggers the game-over check
-                session.end_reason = "Overrun -- the horde broke through before dawn"
+            limit = wave_time_limit(session.wave_number)
+            if limit is not None:
+                session.state_timer -= dt
+                if session.state_timer <= 0 and not player.god_mode:
+                    player.health = 0  # triggers the game-over check
+                    session.end_reason = "Overrun -- the horde broke through before dawn"
 
     # --- smooth day/night visual transition ---
     target_alpha = NIGHT_ALPHA_MAX if session.state == STATE_WAVE else 0
@@ -396,13 +404,14 @@ def update_playing(dt, session):
     for proj in session.enemy_projectiles:
         if not proj.alive:
             continue
-        if proj.pos.distance_to(player.pos) <= (proj.radius + player.size / 2):
+        if circle_rect_collide(proj.pos, proj.radius, player.rect):
             player.take_damage(proj.damage)
             proj.alive = False
     session.enemy_projectiles = [p for p in session.enemy_projectiles if p.alive]
 
     for zombie in session.zombies:
         if zombie.is_dead:
+            session.effects.append(DeathPoof(zombie.pos.x, zombie.pos.y, zombie.size))
             player.currency += zombie.currency_reward
             player.total_kills += 1
     session.zombies = [z for z in session.zombies if not z.is_dead]
@@ -420,6 +429,8 @@ def draw_playing(screen, font, session):
         barricade.draw(screen)
     for zombie in session.zombies:
         zombie.draw(screen)
+    for effect in session.effects:
+        effect.draw(screen)
     for proj in session.enemy_projectiles:
         proj.draw(screen)
     for bullet in session.bullets:

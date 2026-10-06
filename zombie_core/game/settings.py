@@ -31,11 +31,22 @@ GROUND_TILE_SIZE = 50
 WOOD_COLOR = (150, 110, 60)
 
 # --- Player ---
-PLAYER_SIZE = 28
+PLAYER_SIZE = 70
 PLAYER_SPEED = 260
 PLAYER_MAX_HEALTH = 100
-PLAYER_FRAME_SIZE = 32     # size of one frame in assets/player/walk.png
-PLAYER_ANIM_SPEED = 0.12   # seconds per animation frame while moving
+# //to bring back when sprites are done
+# PLAYER_FRAME_SIZE = 32     # size of one frame in assets/player/walk.png
+# PLAYER_ANIM_SPEED = 0.12   # seconds per animation frame while moving
+
+# Static character art (assets/character_designs/*.png) until walk cycles are ready
+CHARACTER_DESIGN_PATHS = {
+    "player": "character_designs/player.png",
+    "walker": "character_designs/walker.png",
+    "runner": "character_designs/runner.png",
+    "brute": "character_designs/brute.png",
+    "spitter": "character_designs/spitter.png",
+    "boss": "character_designs/boss.png",
+}
 
 # --- Bullets ---
 BULLET_RADIUS = 4
@@ -53,31 +64,32 @@ WAVE_TIME_LIMIT_BASE = 55.0
 WAVE_TIME_LIMIT_STEP = 7.0   
 
 # --- Zombie types ---
-ZOMBIE_FRAME_SIZE = 32     # size of one frame in assets/zombies/<type>/walk.png
-ZOMBIE_ANIM_SPEED = 0.15   # seconds per animation frame while moving
+# //to bring back when sprites are done
+# ZOMBIE_FRAME_SIZE = 32     # size of one frame in assets/zombies/<type>/walk.png
+# ZOMBIE_ANIM_SPEED = 0.15   # seconds per animation frame while moving
 ZOMBIE_TYPES = {
     "walker": {
-        "size": 26, "speed": 55, "health": 30, "contact_damage": 8,
+        "size": 44, "speed": 55, "health": 30, "contact_damage": 8,
         "color": (60, 110, 60), "currency": 10, "ranged": False,
         "hearing_range": 380,
     },
     "runner": {
-        "size": 20, "speed": 95, "health": 16, "contact_damage": 6,
+        "size": 36, "speed": 95, "health": 16, "contact_damage": 6,
         "color": (170, 150, 60), "currency": 14, "ranged": False,
         "hearing_range": 450,
     },
     "brute": {
-        "size": 36, "speed": 35, "health": 90, "contact_damage": 15,
+        "size": 62, "speed": 35, "health": 90, "contact_damage": 15,
         "color": (110, 60, 50), "currency": 22, "ranged": False,
         "hearing_range": 340,
     },
     "spitter": {
-        "size": 24, "speed": 40, "health": 20, "contact_damage": 4,
+        "size": 40, "speed": 40, "health": 20, "contact_damage": 4,
         "color": (110, 150, 50), "currency": 18, "ranged": True,
         "hearing_range": 420,
     },
     "boss": {
-        "size": 44, "speed": 42, "health": 260, "contact_damage": 22,
+        "size": 76, "speed": 42, "health": 260, "contact_damage": 22,
         "color": (150, 25, 25), "currency": 80, "ranged": False,
         "hearing_range": 500,
     },
@@ -106,17 +118,24 @@ DIRECT_SIGHT_RANGE = 220         # zombies "see" the player at this range regard
 
 SPITTER_RANGE = 350
 SPITTER_FIRE_COOLDOWN = 2.0
+SPITTER_WINDUP = 0.65
 SPITTER_PROJECTILE_SPEED = 220
 SPITTER_PROJECTILE_DAMAGE = 6
+SPIT_TELEGRAPH_COLOR = (186, 204, 132)   # pale puke-y green
+SPIT_PROJECTILE_COLOR = (158, 188, 98)
 
+HURT_FLASH_DURATION = 0.28
+DEATH_POOF_DURATION = 0.5
+
+# //to bring back when sprites are done
 # Maps each internal zombie type key to its asset folder name
-ZOMBIE_ASSET_FOLDER = {
-    "walker": "normal",
-    "runner": "runner",
-    "brute": "brute",
-    "spitter": "spitter",
-    "boss": "boss",
-}
+# ZOMBIE_ASSET_FOLDER = {
+#     "walker": "normal",
+#     "runner": "runner",
+#     "brute": "brute",
+#     "spitter": "spitter",
+#     "boss": "boss",
+# }
 
 # --- Weapons ---
 WEAPONS = {

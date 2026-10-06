@@ -5,10 +5,13 @@ from game.settings import (
     PLAYER_SIZE, PLAYER_SPEED, PLAYER_MAX_HEALTH,
     SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, GREEN, WEAPONS,
     WALK_NOISE_RADIUS, WALK_NOISE_INTERVAL,
-    PLAYER_FRAME_SIZE, PLAYER_ANIM_SPEED,
     WEAPON_COLORED_OUTLINES, WEAPON_OUTLINE_COLORS,
+    CHARACTER_DESIGN_PATHS,
 )
-from game.spritesheet import try_load_spritesheet
+from game.character_sprite import load_character_design, draw_character_design
+from game.effects import draw_hurt_overlay, trigger_hurt_flash, tick_hurt_flash
+# //to bring back when sprites are done
+# from game.spritesheet import try_load_spritesheet
 
 
 class Player:
@@ -39,11 +42,14 @@ class Player:
         # God mode: toggled with the ` key
         self.god_mode = False
 
-        # Sprite rendering: uses assets/player/walk.png
-        self.sprite_sheet = try_load_spritesheet("player/walk.png", PLAYER_FRAME_SIZE, 4)
+        self.character_sprite = load_character_design("player", CHARACTER_DESIGN_PATHS)
         self.direction = "down"
-        self.frame_index = 0
-        self.anim_timer = 0.0
+        self.hurt_flash = 0.0
+        # //to bring back when sprites are done
+        # Sprite rendering: uses assets/player/walk.png
+        # self.sprite_sheet = try_load_spritesheet("player/walk.png", PLAYER_FRAME_SIZE, 4)
+        # self.frame_index = 0
+        # self.anim_timer = 0.0
 
     @property
     def rect(self):
@@ -77,7 +83,8 @@ class Player:
         self.pos.x = max(half, min(SCREEN_WIDTH - half, self.pos.x))
         self.pos.y = max(half, min(SCREEN_HEIGHT - half, self.pos.y))
 
-        self._animate(dt)
+        # //to bring back when sprites are done
+        # self._animate(dt)
 
     def _face(self, move_vec):
         """Picks which of the 4 walk-cycle directions to show, based
@@ -90,17 +97,19 @@ class Player:
             self.direction = "down" if move_vec.y > 0 else "up"
 
     def _animate(self, dt):
-        if self.sprite_sheet is None:
-            return
-        if self.is_moving:
-            self.anim_timer += dt
-            if self.anim_timer >= PLAYER_ANIM_SPEED:
-                self.anim_timer = 0.0
-                frames = self.sprite_sheet.get_frames(self.direction)
-                self.frame_index = (self.frame_index + 1) % len(frames)
-        else:
-            self.frame_index = 0
-            self.anim_timer = 0.0
+        # //to bring back when sprites are done
+        # if self.sprite_sheet is None:
+        #     return
+        # if self.is_moving:
+        #     self.anim_timer += dt
+        #     if self.anim_timer >= PLAYER_ANIM_SPEED:
+        #         self.anim_timer = 0.0
+        #         frames = self.sprite_sheet.get_frames(self.direction)
+        #         self.frame_index = (self.frame_index + 1) % len(frames)
+        # else:
+        #     self.frame_index = 0
+        #     self.anim_timer = 0.0
+        pass
 
     def update_aim(self):
         mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -110,6 +119,7 @@ class Player:
     def update_timers(self, dt):
         if self.shoot_cooldown > 0:
             self.shoot_cooldown -= dt
+        tick_hurt_flash(self, dt)
 
     def emit_walk_noise(self, dt, noise_manager):
         """Call every frame; emits a footstep noise event periodically
@@ -136,6 +146,7 @@ class Player:
         if self.god_mode:
             return
         self.health = max(0, self.health - amount)
+        trigger_hurt_flash(self)
 
     def heal(self, amount):
         self.health = min(self.max_health, self.health + amount)
@@ -145,14 +156,20 @@ class Player:
         return self.health > 0
 
     def draw(self, screen):
-        if self.sprite_sheet is not None:
-            frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
-            if frame.get_width() != self.size:
-                frame = pygame.transform.scale(frame, (self.size, self.size))
-            screen.blit(frame, self.rect.topleft)
-        else:
+        if not draw_character_design(screen, self.character_sprite, self.pos, self.size, self.direction):
             pygame.draw.rect(screen, GREEN, self.rect, border_radius=4)
             pygame.draw.rect(screen, WHITE, self.rect, width=2, border_radius=4)
+        if self.hurt_flash > 0:
+            draw_hurt_overlay(screen, self.pos, self.size)
+        # //to bring back when sprites are done
+        # if self.sprite_sheet is not None:
+        #     frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
+        #     if frame.get_width() != self.size:
+        #         frame = pygame.transform.scale(frame, (self.size, self.size))
+        #     screen.blit(frame, self.rect.topleft)
+        # else:
+        #     pygame.draw.rect(screen, GREEN, self.rect, border_radius=4)
+        #     pygame.draw.rect(screen, WHITE, self.rect, width=2, border_radius=4)
 
         # aim-direction line ("the stick"), drawn regardless of
         # sprite/fallback -- colored to match the equipped weapon
