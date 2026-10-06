@@ -195,11 +195,11 @@ The game includes:
 
 ## Technologies
 The game is developed using:
-* **Python** — main programming language
-* **PyGame** — 2D game development framework
-* **2D Pixel Art** — characters, weapons, items and UI assets
-* **Sprite Animation** — character movement and combat animations
-* **GitHub** — version control and project management
+* **Python** - main programming language
+* **PyGame** - 2D game development framework
+* **2D Pixel Art** - characters, weapons, items and UI assets
+* **Sprite Animation** - character movement and combat animations
+* **GitHub** - version control and project management
 
 ## Development Status
 The core gameplay systems are implemented, including:
