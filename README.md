@@ -1,9 +1,9 @@
 # Zombie Survival
 A **2D pixel-art survival game** developed in Python using PyGame.
 
-The goal is simple: survive increasingly difficult waves of zombies during the night, then use the daytime break to heal, collect resources, repair barriers, buy weapons and ammunition, and prepare for the next wave.
+The goal is simple: survive increasingly difficult waves of zombies during the night, then use the daytime break to heal, collect resources, repair barricades, buy weapons and ammunition, and prepare for the next wave.
 
-The game features multiple zombie types, different weapons and rarities, a day/night cycle, difficulty scaling, bosses, a shop system, barriers, and animated pixel-art characters.
+The game features multiple zombie types, different weapons and rarities, a day/night cycle, difficulty scaling, bosses, a shop system, barricades, and animated pixel-art characters.
 
 ## Game Overview
 The game is structured around a day/night cycle. Each game consists of alternating daytime preparation phases and nighttime zombie waves.
@@ -13,7 +13,7 @@ During the day, the player gets time to:
 * Heal
 * Collect free health packs
 * Collect ammunition
-* Repair and reposition barriers
+* Repair and reposition barricades
 * Purchase weapons
 * Purchase ammunition
 * Prepare for the upcoming wave
@@ -25,7 +25,7 @@ The player must:
 * Aim using the mouse
 * Shoot incoming zombies
 * Manage ammunition
-* Use barriers strategically
+* Use barricades strategically
 * Survive until all zombies are defeated
 
 If the night timer expires while zombies are still alive, the player loses. If all zombies are eliminated before the timer expires, the game continues to the next daytime phase.
@@ -88,16 +88,16 @@ The amount of time available during a night is also influenced by the number and
 
 Different zombie types receive different time allowances depending on their difficulty and how many hits they require to defeat.
 
-## Barriers
-Barriers can be used to slow down or control zombies.
+## Barricades
+Barricades can be used to slow down or control zombies.
 
 The player can:
-* Position barriers differently
-* Move the barrier position using the arrow keys
+* Position barricades differently
+* Move the barricade position using the arrow keys
 * Confirm placement with Enter
-* See the materials required to build a barrier
-* See the barrier's health
-* Repair damaged barriers using materials
+* See the materials required to build a barricade
+* See the barricade's health
+* Repair damaged barricade using materials
 
 This allows the player to create defensive positions before a wave begins.
 
@@ -131,7 +131,7 @@ The game tracks the player's progress through several HUD elements.
 * Health packs
 * Ammunition pickups
 * Shop interface
-* Barrier information
+* barricade information
 
 ## Pixel Art & Animation
 The game uses custom **2D pixel-art sprites and animations**.
@@ -218,7 +218,7 @@ The core gameplay systems are implemented, including:
 * Difficulty scaling
 * Boss waves
 * Kill counters
-* Barriers
+* barricades
 * Main menu
 * Pause menu
 * Game over screen
