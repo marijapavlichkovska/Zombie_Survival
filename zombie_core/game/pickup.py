@@ -14,6 +14,7 @@ import random
 from game.settings import (
     PICKUP_TYPES, PICKUP_RADIUS, PICKUP_COLLECT_DISTANCE,
     PICKUPS_PER_BREAK, SCREEN_WIDTH, SCREEN_HEIGHT, BLACK, WHITE,
+    AMMO_PICKUP_AMOUNTS,
 )
 from game.assets import load_image
 
@@ -67,8 +68,11 @@ class Pickup:
         self.kind = kind
         info = PICKUP_TYPES[kind]
         self.color = info["color"]
-        low, high = info["amount_range"]
-        self.amount = random.randint(low, high)
+        if kind.startswith("ammo_"):
+            self.amount = random.choice(AMMO_PICKUP_AMOUNTS)
+        else:
+            low, high = info["amount_range"]
+            self.amount = random.randint(low, high)
         self.radius = PICKUP_RADIUS
         self.collected = False
 

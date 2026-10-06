@@ -373,8 +373,13 @@ def update_playing(dt, session):
         proj.update(dt)
     session.enemy_projectiles = [p for p in session.enemy_projectiles if p.alive]
 
+    spawn_queue = []
     for zombie in session.zombies:
-        zombie.update(dt, player, session.noise_manager, session.barricades, session.enemy_projectiles)
+        zombie.update(
+            dt, player, session.noise_manager, session.barricades,
+            session.enemy_projectiles, spawn_queue,
+        )
+    session.zombies.extend(spawn_queue)
 
     for bullet in session.bullets:
         if not bullet.alive:

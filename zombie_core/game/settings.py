@@ -84,6 +84,22 @@ ZOMBIE_TYPES = {
 }
 BOSS_WAVE_INTERVAL = 5   # a boss spawns on wave 5 & 10
 
+# Boss special attacks
+BOSS_ABILITY_COOLDOWN = 5.0
+BOSS_CHARGE_WINDUP = 0.85
+BOSS_CHARGE_SPEED = 340
+BOSS_CHARGE_DURATION = 0.55
+BOSS_CHARGE_DAMAGE = 38
+BOSS_CHARGE_MIN_DIST = 90
+BOSS_CHARGE_MAX_DIST = 380
+BOSS_SLAM_WINDUP = 1.05
+BOSS_SLAM_RADIUS = 115
+BOSS_SLAM_DAMAGE = 32
+BOSS_SUMMON_WINDUP = 1.1
+BOSS_SUMMON_COUNT = 5
+BOSS_SUMMON_SPREAD = 55
+BOSS_SUMMON_USES_PER_WAVE = (2, 3)   # each boss may summon this many times per wave
+
 ZOMBIE_ATTACK_COOLDOWN = 0.7
 ZOMBIE_ATTACK_RANGE = 6          # extra px beyond touching before contact registers
 DIRECT_SIGHT_RANGE = 220         # zombies "see" the player at this range regardless of noise
@@ -193,14 +209,15 @@ PICKUP_COLLECT_DISTANCE = 30
 PICKUPS_PER_BREAK = (5, 8)
 
 # Ammo pickups reuse the ammo/ rarity-tier icons rather than one icon per weapon.
+AMMO_PICKUP_AMOUNTS = (5, 10, 15)
 PICKUP_TYPES = {
     "wood": {"color": WOOD_COLOR, "amount_range": (18, 28)},
     "metal": {"color": (150, 155, 160), "amount_range": (7, 14)},
     "health": {"color": RED, "amount_range": (15, 25)},
-    "ammo_pistol": {"color": (80, 200, 80), "amount_range": (10, 20)},
-    "ammo_rifle": {"color": (80, 200, 80), "amount_range": (8, 16)},
-    "ammo_shotgun": {"color": (80, 200, 80), "amount_range": (4, 10)},
-    "ammo_machinegun": {"color": (170, 100, 220), "amount_range": (10, 20)},
+    "ammo_pistol": {"color": (80, 200, 80)},
+    "ammo_rifle": {"color": (80, 200, 80)},
+    "ammo_shotgun": {"color": (80, 200, 80)},
+    "ammo_machinegun": {"color": (170, 100, 220)},
 }
 
 # --- Shop ---

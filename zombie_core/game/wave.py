@@ -5,6 +5,7 @@ from game.settings import (
     BOSS_WAVE_INTERVAL,
 )
 from game.zombie import Zombie
+from game.boss_zombie import BossZombie
 
 
 def _spawn_edge_position():
@@ -47,6 +48,6 @@ def spawn_wave(wave_number):
 
     if wave_number % BOSS_WAVE_INTERVAL == 0:
         x, y = SCREEN_WIDTH / 2, -40 
-        zombies.append(Zombie(x, y, "boss"))
+        zombies.append(BossZombie(x, y, health_multiplier, speed_multiplier))
 
     return zombies

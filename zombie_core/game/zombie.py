@@ -71,7 +71,7 @@ class Zombie:
                     return barricade
         return None
 
-    def update(self, dt, player, noise_manager, barricades, enemy_projectiles):
+    def update(self, dt, player, noise_manager, barricades, enemy_projectiles, spawn_queue=None):
         distance_to_player = self.pos.distance_to(player.pos)
         blocking_barricade = self._find_blocking_barricade(player.pos, barricades)
         moving = False
