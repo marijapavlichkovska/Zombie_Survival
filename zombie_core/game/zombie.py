@@ -19,11 +19,6 @@ class Zombie:
       4. Else wander aimlessly.
     Ranged zombies (spitter) skip contact-rushing and instead keep
     some distance while lobbing projectiles.
-
-    Rendering: if assets/zombies/<folder>/walk.png exists it's used
-    (directional, animated, scaled to this type's size); otherwise
-    falls back to the original colored rect so the game still runs
-    with no art at all.
     """
 
     def __init__(self, x, y, zombie_type, health_multiplier=1.0, speed_multiplier=1.0):
@@ -61,9 +56,7 @@ class Zombie:
 
     def _find_blocking_barricade(self, player_pos, barricades):
         """A barricade counts as 'blocking' if it's close to this
-        zombie and roughly in the direction of the player -- a cheap
-        approximation instead of full pathfinding, good enough as
-        long as barricades are placed at sensible chokepoints."""
+        zombie and roughly in the direction of the player."""
         for barricade in barricades:
             if barricade.is_destroyed:
                 continue
@@ -111,7 +104,7 @@ class Zombie:
                 enemy_projectiles.append(EnemyProjectile(self.pos, player.pos))
                 self.fire_cooldown = SPITTER_FIRE_COOLDOWN
 
-        # --- melee zombie behavior (walker/runner/brute/boss) ---
+        # --- zombie behavior for rest of the zombies ---
         else:
             if self.state == "attacking_barricade":
                 dist = self.pos.distance_to(target)
@@ -204,8 +197,7 @@ class Zombie:
             pygame.draw.rect(screen, RED, (x, y, bar_w * ratio, bar_h))
 
         # "!" indicator: shown while this zombie is investigating a
-        # noise it just heard (as opposed to directly seeing/chasing
-        # the player), so you can see at a glance which zombies a
+        # noise it just heard, so you can see at a glance which zombies a
         # gunshot just alerted.
         if self.state == "investigating":
             self._draw_alert_icon(screen)
