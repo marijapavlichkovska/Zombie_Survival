@@ -1,12 +1,10 @@
 """
-Barricades: placeable, damageable obstacles built during the day
-(break phase). If one sits roughly between a zombie and the player,
-the zombie attacks the barricade instead of walking straight through
-(see zombie.Zombie._find_blocking_barricade).
+Barricades are placeable, damageable obstacles built during the day. 
+If one sits roughly between a zombie and the player,the zombie attacks 
+the barricade instead of walking straight through.
 
 Barricades can be placed in either orientation (horizontal "_" or
-vertical "|") -- see main.py's placement-mode handling for how the
-player picks position and orientation before confirming.
+vertical "|")
 """
 
 import pygame
@@ -23,8 +21,7 @@ class Barricade:
 
     def _set_dimensions(self):
         w, h = BARRICADE_SIZE
-        # vertical orientation just swaps width/height so the same
-        # barricade can block either a horizontal or vertical approach
+        # vertical orientation just swaps width/height so the same barricade can block either approach
         self.width, self.height = (h, w) if self.vertical else (w, h)
 
     @property
@@ -55,7 +52,6 @@ class Barricade:
         pygame.draw.rect(screen, color, rect, border_radius=2)
         pygame.draw.rect(screen, BLACK, rect, width=2, border_radius=2)
 
-        # plank lines for texture, oriented to match the barricade
         if self.vertical:
             for i in range(1, 3):
                 plank_y = rect.top + self.height * i / 3
@@ -79,8 +75,6 @@ class Barricade:
         pygame.draw.rect(screen, fill_color, (x, y, bar_w * ratio, bar_h))
 
     def draw_ghost(self, screen, can_afford):
-        """Semi-transparent preview shown while the player is choosing
-        where to place this barricade (see main.py placement mode)."""
         rect = self.rect
         ghost = pygame.Surface((rect.width, rect.height), pygame.SRCALPHA)
         color = (*WOOD_COLOR, 140) if can_afford else (200, 60, 60, 140)
