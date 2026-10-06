@@ -10,7 +10,8 @@ from game.settings import (
 )
 from game.character_sprite import load_character_design, draw_character_design
 from game.effects import draw_hurt_overlay, trigger_hurt_flash, tick_hurt_flash
-# //to bring back when sprites are done
+
+# todo: bring back when sprites are done
 # from game.spritesheet import try_load_spritesheet
 
 
@@ -45,7 +46,7 @@ class Player:
         self.character_sprite = load_character_design("player", CHARACTER_DESIGN_PATHS)
         self.direction = "down"
         self.hurt_flash = 0.0
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # Sprite rendering: uses assets/player/walk.png
         # self.sprite_sheet = try_load_spritesheet("player/walk.png", PLAYER_FRAME_SIZE, 4)
         # self.frame_index = 0
@@ -83,7 +84,7 @@ class Player:
         self.pos.x = max(half, min(SCREEN_WIDTH - half, self.pos.x))
         self.pos.y = max(half, min(SCREEN_HEIGHT - half, self.pos.y))
 
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # self._animate(dt)
 
     def _face(self, move_vec):
@@ -97,7 +98,7 @@ class Player:
             self.direction = "down" if move_vec.y > 0 else "up"
 
     def _animate(self, dt):
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # if self.sprite_sheet is None:
         #     return
         # if self.is_moving:
@@ -173,7 +174,7 @@ class Player:
             draw_hurt_overlay(
                 screen, self.pos, self.size, self.character_sprite, self.direction
             )
-        # //to bring back when sprites are done
+        # todo: bring back when sprites are done
         # if self.sprite_sheet is not None:
         #     frame = self.sprite_sheet.get_frames(self.direction)[self.frame_index]
         #     if frame.get_width() != self.size:
