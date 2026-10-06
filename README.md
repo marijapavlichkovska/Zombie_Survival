@@ -131,7 +131,7 @@ The game tracks the player's progress through several HUD elements.
 * Health packs
 * Ammunition pickups
 * Shop interface
-* barricade information
+* Barricade information
 
 ## Pixel Art & Animation
 The game uses custom **2D pixel-art sprites and animations**.
@@ -218,7 +218,7 @@ The core gameplay systems are implemented, including:
 * Difficulty scaling
 * Boss waves
 * Kill counters
-* barricades
+* Barricades
 * Main menu
 * Pause menu
 * Game over screen
