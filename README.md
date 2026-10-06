@@ -1,5 +1,5 @@
 # Zombie Survival
-A 2D pixel-art survival game developed in Python using PyGame.
+A **2D pixel-art survival game** developed in Python using PyGame.
 
 The goal is simple: survive increasingly difficult waves of zombies during the night, then use the daytime break to heal, collect resources, repair barriers, buy weapons and ammunition, and prepare for the next wave.
 
