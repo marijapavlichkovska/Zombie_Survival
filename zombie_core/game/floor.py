@@ -1,12 +1,10 @@
 """
 Renders a tiled floor with some visual depth (alternating tile shades,
 grout lines, and thicker panel seams every few tiles) instead of a
-flat single-color fill -- loosely inspired by the concrete-tile look
-of top-down shooter floors.
+flat single-color fill.
 
 The floor never changes at runtime, so we build it once into a cached
-Surface and just blit that every frame rather than redrawing every
-tile 60 times a second.
+Surface and just blit that every frame rather than redrawing the tiles.
 """
 
 import pygame
@@ -31,12 +29,9 @@ def _build_floor_surface():
     for row in range(rows):
         for col in range(cols):
             x, y = col * tile, row * tile
-            # checkerboard base shade
             base = GROUND_COLOR if (row + col) % 2 == 0 else GROUND_COLOR_ALT
 
-            # tiny per-tile brightness variation so it doesn't look
-            # like a perfectly repeating pattern -- this is most of
-            # what gives it "dimension" versus a flat fill
+            # tiny per-tile brightness variation so it doesn't look like a repeating pattern
             jitter = rng.randint(-4, 4)
             color = tuple(max(0, min(255, c + jitter)) for c in base)
 
@@ -45,7 +40,7 @@ def _build_floor_surface():
             # thin grout line around every tile
             pygame.draw.rect(surface, GROUND_GROUT_COLOR, (x, y, tile, tile), 1)
 
-            # occasional small darker speckle (dirt/wear) for extra texture
+            # small darker speckle 
             if rng.random() < 0.12:
                 speck_w = rng.randint(4, 10)
                 speck_h = rng.randint(3, 7)
@@ -54,8 +49,7 @@ def _build_floor_surface():
                 speck_color = tuple(max(0, c - 14) for c in color)
                 pygame.draw.rect(surface, speck_color, (speck_x, speck_y, speck_w, speck_h))
 
-    # thicker panel seams every 4 tiles, both directions, for the
-    # bigger "floor panel" structure seen in the reference image
+    # thicker panel seams every 4 tiles, both directions, for the bigger "floor panel" structure
     panel_span = tile * 4
     for x in range(0, SCREEN_WIDTH + panel_span, panel_span):
         pygame.draw.line(surface, GROUND_SEAM_COLOR, (x, 0), (x, SCREEN_HEIGHT), 3)
