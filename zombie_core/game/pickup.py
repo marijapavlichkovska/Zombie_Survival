@@ -1,8 +1,7 @@
 """
-Pickups: free items scattered on the ground during the day (break
-phase) for the player to walk over and auto-collect. Covers wood,
-metal (used for barricades), ammo (per weapon type, including the
-machine gun now), and health.
+Pickups: free items scattered on the ground during the day for the
+player to walk over and auto-collect. Covers wood, metal, ammo (per 
+weapon type, including the machine gun now), and health.
 
 Weapons themselves stay in the shop (bought with currency) -- these
 are the "free, walk-around-and-grab" resources per the original
@@ -19,10 +18,9 @@ from game.settings import (
 from game.assets import load_image
 
 # Maps a pickup kind to an icon in assets/. Ammo pickups reuse the
-# rarity-tier icons rather than one per weapon: rifle and shotgun
-# ammo are both "common", machine gun ammo is "rare" -- same grouping
-# as WEAPON_RARITY / WEAPON_OUTLINE_COLORS in settings.py. Health
-# uses the dedicated medpack icon.
+# rarity-tier icons rather than one per weapon. Health uses the 
+# dedicated medpack icon.
+
 PICKUP_ICON_PATH = {
     "wood": "materials/wood.png",
     "metal": "materials/metal.png",
@@ -53,8 +51,7 @@ def _draw_outlined_text(screen, text, center_pos, text_color=BLACK, outline_colo
     font = _get_amount_font()
     cx, cy = center_pos
     # outline: render the text in white slightly offset in every
-    # direction first, then the black text on top -- cheap way to get
-    # a readable outline without needing a dedicated outlined-font asset
+    # direction first, then the black text on top.
     for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (1, 1), (-1, 1), (1, -1)]:
         outline_surf = font.render(text, True, outline_color)
         rect = outline_surf.get_rect(center=(cx + dx, cy + dy))
@@ -98,12 +95,7 @@ def spawn_break_pickups(player_pos):
     """Spawns pickups scattered around the screen at the start of a
     break, avoiding the player's current position.
 
-    Wood and metal are guaranteed to appear at least once each break
-    (on top of the normal random batch) -- purely random selection
-    among the pickup kinds meant some breaks rolled zero wood or
-    metal entirely, which made barricades feel unreachable in the
-    early rounds. The guarantee removes that bad-luck case without
-    changing how generous a lucky break can be.
+    Wood and metal are guaranteed to appear at least once each break.
     """
     def _random_position():
         while True:
