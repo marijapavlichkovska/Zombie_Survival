@@ -1,20 +1,3 @@
-"""
-Generates placeholder art into the exact asset folder structure shown
-in the project tree, so the game is immediately runnable and every
-file path already matches what your real art will replace. Drop your
-actual PNGs in over these (same filenames) and nothing else needs to
-change -- the game loads by path, not by "is this a placeholder".
-
-Run this once: `python generate_placeholders.py`
-
-Folder layout (matches your screenshot):
-    assets/materials/{wood,metal,currency}.png       -- 24x24 icons
-    assets/weapons/{pistol,rifle,shotgun,machine_gun}.png  -- 24x24 icons
-    assets/ammo/{common,uncommon,rare}.png            -- 24x24 rarity icons
-    assets/player/walk.png                            -- 32x32 x4 cols x3 rows (down/up/left)
-    assets/zombies/<type>/walk.png                    -- same layout, one per type
-"""
-
 from PIL import Image, ImageDraw
 import os
 
@@ -97,7 +80,6 @@ def make_shop_button_icon(path, size=64):
     img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     draw.ellipse([2, 2, size - 2, size - 2], fill=(60, 130, 90, 255), outline=(20, 50, 30, 255), width=3)
-    # simple shopping-bag silhouette
     bag_w, bag_h = size * 0.42, size * 0.38
     left, top = size / 2 - bag_w / 2, size / 2 - bag_h / 2 + 4
     draw.rectangle([left, top, left + bag_w, top + bag_h], fill=(255, 220, 120, 255), outline=(90, 60, 10, 255), width=2)
