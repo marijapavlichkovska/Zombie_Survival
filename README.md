@@ -184,6 +184,7 @@ The game includes:
 | D | Move Right |
 | Mouse | Aim / Interact with UI |
 | Left Mouse Button | Shoot at night / Interact with shop and barricade UI during the day |
+| F1 / F2 / F3 / F4 | Buying items from the shop |
 | 1 / 2 / 3 / 4 | Switch weapon if owned |
 | ` | Toggle God Mode (testing purposes) |
 | B | Start placing a barricade during the day |
